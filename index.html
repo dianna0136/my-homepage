@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>吴宇桐 · 正在学习 AI 的大一新生</title>
+  <meta name="description" content="吴宇桐的个人主页：一个正在学习 AI 的大一新生。" />
+  <style>
+    :root {
+      --paper: #fbf8f9;      /* 暖粉白底 */
+      --paper-2: #f4eef1;
+      --card: #ffffff;
+      --rose: #c4697e;       /* 粉玫瑰主色 */
+      --rose-deep: #a85470;
+      --pink: #e4b6c2;
+      --pink-soft: #f7e8ec;
+      --blush: #faeef2;
+      --gray: #6a6368;       /* 主文字灰 */
+      --gray-strong: #4a4348;
+      --gray-soft: #989097;
+      --line: #ece4e7;
+      --serif: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", "Songti SC", "STSong", "SimSun", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --radius: 22px;
+      --shadow: 0 16px 36px rgba(176,116,138,.12);
+      --shadow-sm: 0 8px 20px rgba(176,116,138,.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--gray);
+      background:
+        radial-gradient(1050px 540px at 12% -4%, var(--blush) 0%, rgba(255,255,255,0) 62%),
+        radial-gradient(920px 470px at 96% 6%, #f2f6f5 0%, rgba(255,255,255,0) 58%),
+        var(--paper);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 背景枝条装饰（左右两侧，仿参考风格，配色转粉/白/灰） */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      top: 36px;
+      width: 200px; height: 680px;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgNjgwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjY4MCIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTQwIDggQyA4NiAxMTgsIDUyIDI0OCwgOTYgMzUwIEMgMTI4IDQyOCwgMTAwIDUyOCwgMTUwIDY2MCIgc3Ryb2tlPSIjZDZjMWM5IiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02MCAxNjAgQyAxMDQgMTU4LCAxMzIgMTMwLCAxNTggMTIyIiBzdHJva2U9IiNkNmMxYzkiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTcyIDI3MCBDIDExMiAyNTgsIDE0MCAyMjYsIDE2MCAyMTIiIHN0cm9rZT0iI2Q2YzFjOSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMTA0IDQxNiBDIDQ2IDQxNCwgMTQgMzgyLCA0IDM2MiIgc3Ryb2tlPSIjZDZjMWM5IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMjAgNTIwIEMgMTc2IDUxMiwgMTQ2IDQ3OCwgMTc4IDQ1MiIgc3Ryb2tlPSIjYzliMGJhIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxnIGZpbGw9IiNlY2NhZDMiPjxlbGxpcHNlIGN4PSIxNjAiIGN5PSI5NiIgcng9IjExIiByeT0iMjciIHRyYW5zZm9ybT0icm90YXRlKDQ0IDE2MCA5NikiLz48ZWxsaXBzZSBjeD0iMTYwIiBjeT0iMjA0IiByeD0iMTEiIHJ5PSIyNyIgdHJhbnNmb3JtPSJyb3RhdGUoMzQgMTYwIDIwNCkiLz48ZWxsaXBzZSBjeD0iNDgiIGN5PSIzNTYiIHJ4PSIxMiIgcnk9IjI5IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjIgNDggMzU2KSIvPjxlbGxpcHNlIGN4PSIxMjAiIGN5PSI1MTIiIHJ4PSIxMSIgcnk9IjI3IiB0cmFuc2Zvcm09InJvdGF0ZSgxOCAxMjAgNTEyKSIvPjxlbGxpcHNlIGN4PSIxNTAiIGN5PSI2MDAiIHJ4PSIxMSIgcnk9IjI3IiB0cmFuc2Zvcm09InJvdGF0ZSgyNiAxNTAgNjAwKSIvPjwvZz48ZyBmaWxsPSIjZjRkYmUyIj48ZWxsaXBzZSBjeD0iMTc0IiBjeT0iODQiIHJ4PSIxMCIgcnk9IjI1IiB0cmFuc2Zvcm09InJvdGF0ZSg1OCAxNzQgODQpIi8+PGVsbGlwc2UgY3g9IjE3NiIgY3k9IjE5MiIgcng9IjEwIiByeT0iMjQiIHRyYW5zZm9ybT0icm90YXRlKDUyIDE3NiAxOTIpIi8+PGVsbGlwc2UgY3g9IjYwIiBjeT0iMzc0IiByeD0iMTAiIHJ5PSIyNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ2IDYwIDM3NCkiLz48ZWxsaXBzZSBjeD0iMTUwIiBjeT0iNTAwIiByeD0iMTAiIHJ5PSIyNCIgdHJhbnNmb3JtPSJyb3RhdGUoMzggMTUwIDUwMCkiLz48L2c+PGcgZmlsbD0iI2ZmZiI+PGNpcmNsZSBjeD0iMTc4IiBjeT0iMTMyIiByPSI3Ii8+PGNpcmNsZSBjeD0iMTg4IiBjeT0iMTIxIiByPSI5Ii8+PGNpcmNsZSBjeD0iMTg0IiBjeT0iMTQ2IiByPSI2Ii8+PGNpcmNsZSBjeD0iMTIiIGN5PSIzNDAiIHI9IjYiLz48Y2lyY2xlIGN4PSIxNzYiIGN5PSI0NjgiIHI9IjciLz48Y2lyY2xlIGN4PSIxNjYiIGN5PSI0NzgiIHI9IjYiLz48L2c+PGcgZmlsbD0iI2VlZDNkYSI+PGNpcmNsZSBjeD0iMTgyIiBjeT0iMTMyIiByPSIxMSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMzQyIiByPSI4Ii8+PGNpcmNsZSBjeD0iMTc4IiBjeT0iNDcwIiByPSI5Ii8+PC9nPjwvc3ZnPg==') no-repeat left top / auto 100%;
+      opacity: .6;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before { left: 0; }
+    body::after { right: 0; transform: scaleX(-1); top: auto; bottom: 36px; }
+
+    .container {
+      max-width: 1010px; margin: 0 auto; padding: 0 30px;
+      position: relative; z-index: 1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Header ---------- */
+    .header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,248,249,.82);
+      backdrop-filter: saturate(150%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 16px 0;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--serif); font-weight: 600;
+      font-size: 20px; letter-spacing: 1px; color: var(--gray-strong);
+    }
+    .brand .brand-emoji { font-size: 20px; line-height: 1; display: inline-block; flex: none; }
+    .nav { display: flex; align-items: center; gap: 26px; }
+    .nav a { font-size: 14.5px; color: var(--gray-soft); letter-spacing: .3px; transition: color .2s; }
+    .nav a:hover { color: var(--rose); }
+    .cta {
+      background: var(--rose); color: #fff; padding: 10px 22px;
+      border-radius: 999px; font-size: 14.5px; font-weight: 600;
+      box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .2s, background .2s;
+      white-space: nowrap;
+    }
+    .cta:hover { transform: translateY(-2px); background: var(--rose-deep); }
+
+    /* ---------- Hero（大留白 + 居中 + 圆括号衬线标题） ---------- */
+    .hero {
+      display: block; text-align: center;
+      padding: 110px 0 84px;
+    }
+    .hero h1 {
+      font-family: var(--serif); font-weight: 600;
+      font-size: 52px; line-height: 1.3; color: var(--gray-strong);
+      letter-spacing: 1px;
+    }
+    .hero h1::before { content: "("; color: var(--pink); font-weight: 300; font-style: normal; margin-right: 6px; }
+    .hero h1::after  { content: ")"; color: var(--pink); font-weight: 300; font-style: normal; margin-left: 6px; }
+    .hero h1 span { color: var(--rose); font-style: italic; }
+    .hero .tagline {
+      font-size: 19px; color: var(--gray); margin-top: 20px;
+      font-weight: 500; letter-spacing: .5px;
+    }
+    .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+    .tag {
+      background: var(--card); color: var(--rose); font-size: 13.5px;
+      padding: 7px 16px; border-radius: 999px; font-weight: 500;
+      border: 1px solid var(--pink);
+    }
+    .tag.mint { background: var(--paper-2); color: var(--gray); border-color: var(--line); }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 34px; }
+    .btn-primary {
+      background: var(--rose); color: #fff; padding: 13px 28px; border-radius: 999px;
+      font-weight: 700; font-size: 15px; box-shadow: var(--shadow-sm);
+      transition: transform .15s, background .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); background: var(--rose-deep); box-shadow: var(--shadow); }
+    .btn-ghost {
+      border: 1.5px solid var(--pink); background: var(--card); color: var(--rose);
+      padding: 12px 26px; border-radius: 999px; font-weight: 600; font-size: 15px;
+      transition: background .2s;
+    }
+    .btn-ghost:hover { background: var(--blush); }
+    .hero-figure { text-align: center; margin-top: 56px; position: relative; }
+    /* ---------- V2.1.0 祥云两侧装饰：用户上传祥云图抠图（cloud-left.png 左簇），右侧 CSS 镜像；等比缩放不拉宽、高≈2×头像、与头像保持间距不触碰 ---------- */
+    .cloud-deco {
+      position: absolute; width: auto; z-index: 0; pointer-events: none;
+      user-select: none; -webkit-user-select: none;
+      filter: drop-shadow(0 6px 18px rgba(196,105,126,.10));
+    }
+    .hero-figure .cloud-deco { height: 408px; top: -102px; }                 /* 正式页：头像视觉 204px(232×0.88)→云高 2×204=408；头像中心在 hero-figure 顶部下 102px */
+    .hero-figure .cloud-left  { right: calc(50% + 132px); }                   /* 云右缘距中心线 132px = 头像半径 102 + 间距 30 */
+    .hero-figure .cloud-right { left: calc(50% + 132px); transform: scaleX(-1); }
+    @media (max-width: 1000px) { .cloud-deco { display: none; } }             /* 小屏隐藏，避免挤压布局 */
+    .avatar {
+      width: 232px; height: 232px; border-radius: 50%; object-fit: cover;
+      box-shadow: 0 0 0 7px #fff, 0 0 0 12px var(--pink-soft), 0 22px 44px rgba(196,105,126,.20);
+    }
+    /* ---------- V2.0.7 头像环绕背景装饰：奶黄五角星 + 浅蓝波浪粗曲线交替成圆，绕头像中心缓慢旋转（背景层，非头像框） ---------- */
+    .avatar-wrap { position: relative; display: inline-block; line-height: 0; z-index: 0; transform: scale(0.88); transform-origin: center; }
+    .avatar-wrap .avatar-orbit {
+      position: absolute; left: 50%; top: 50%;
+      width: 0; height: 0; pointer-events: none; z-index: -1;
+      animation: orbitSpin 40s linear infinite;
+    }
+    .orbit-el { position: absolute; left: 0; top: 0; overflow: visible; }
+    .orbit-el.star { width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+    .orbit-el.wave { width: 38px; height: 20px; margin: -10px 0 0 -19px; }
+    .star-1 { transform: rotate(0deg)   translateX(var(--rs)) rotate(-0deg)  scale(1.3); }
+    .star-2 { transform: rotate(60deg)  translateX(var(--rs)) rotate(-60deg) scale(1.3); }
+    .star-3 { transform: rotate(120deg) translateX(var(--rs)) rotate(-120deg) scale(1.3); }
+    .star-4 { transform: rotate(180deg) translateX(var(--rs)) rotate(-180deg) scale(1.3); }
+    .star-5 { transform: rotate(240deg) translateX(var(--rs)) rotate(-240deg) scale(1.3); }
+    .star-6 { transform: rotate(300deg) translateX(var(--rs)) rotate(-300deg) scale(1.3); }
+    .wave-1 { transform: rotate(30deg)  translateX(calc(var(--r)  - 3.5px)) rotate(90deg); }
+    .wave-2 { transform: rotate(90deg)  translateX(calc(var(--r)  - 3.5px)) rotate(90deg); }
+    .wave-3 { transform: rotate(150deg) translateX(calc(var(--r)  - 3.5px)) rotate(90deg); }
+    .wave-4 { transform: rotate(210deg) translateX(calc(var(--r)  - 3.5px)) rotate(90deg); }
+    .wave-5 { transform: rotate(270deg) translateX(calc(var(--r)  - 3.5px)) rotate(90deg); }
+    .wave-6 { transform: rotate(330deg) translateX(calc(var(--r)  - 3.5px)) rotate(90deg); }
+    /* 内侧白色波浪：与浅蓝波浪同款，半径小一圈紧挨其里侧；加浅灰投影以在浅色背景上显出轮廓 */
+    .wave-w-1 { transform: rotate(30deg)  translateX(calc(var(--r2) + 3.5px)) rotate(90deg); filter: drop-shadow(0 0 2px rgba(160,160,180,.6)); }
+    .wave-w-2 { transform: rotate(90deg)  translateX(calc(var(--r2) + 3.5px)) rotate(90deg); filter: drop-shadow(0 0 2px rgba(160,160,180,.6)); }
+    .wave-w-3 { transform: rotate(150deg) translateX(calc(var(--r2) + 3.5px)) rotate(90deg); filter: drop-shadow(0 0 2px rgba(160,160,180,.6)); }
+    .wave-w-4 { transform: rotate(210deg) translateX(calc(var(--r2) + 3.5px)) rotate(90deg); filter: drop-shadow(0 0 2px rgba(160,160,180,.6)); }
+    .wave-w-5 { transform: rotate(270deg) translateX(calc(var(--r2) + 3.5px)) rotate(90deg); filter: drop-shadow(0 0 2px rgba(160,160,180,.6)); }
+    .wave-w-6 { transform: rotate(330deg) translateX(calc(var(--r2) + 3.5px)) rotate(90deg); filter: drop-shadow(0 0 2px rgba(160,160,180,.6)); }
+    @keyframes orbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .splash-wrap { --r: 190px; --r2: 172px; --rs: 174px; }             /* 载入页：装饰圈头像外约40px；白波紧贴蓝波里侧；星星内移到 174px */
+    .hero-figure .avatar-wrap { --r: 147px; --r2: 129px; --rs: 140px; } /* 正式页：等比缩小；星星外移一点 */
+    .hero-caption { margin-top: 18px; color: var(--gray-soft); font-size: 14.5px; letter-spacing: .3px; }
+
+    /* ---------- Section ---------- */
+    section { padding: 58px 0; position: relative; }
+    .section-head { text-align: center; margin-bottom: 42px; }
+    .eyebrow {
+      display: inline-block; font-size: 12px; letter-spacing: 3px; font-weight: 700;
+      text-transform: uppercase; color: var(--rose);
+    }
+    .section-head h2 {
+      font-family: var(--serif); font-weight: 600;
+      font-size: 34px; margin-top: 10px; color: var(--gray-strong);
+    }
+    .section-head p { color: var(--gray-soft); margin-top: 12px; font-size: 15.5px; }
+
+    /* ---------- Cards ---------- */
+    .grid { display: grid; gap: 22px; }
+    .about-card, .work-card, .skill-card, .think-card, .contact-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .18s, box-shadow .25s;
+    }
+    .about-card:hover, .work-card:hover, .skill-card:hover, .think-card:hover {
+      transform: translateY(-4px); box-shadow: var(--shadow);
+    }
+    .card-label { color: var(--rose); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .card-title {
+      font-family: var(--serif); font-weight: 600;
+      font-size: 21px; margin: 10px 0 8px; color: var(--gray-strong);
+    }
+    .card-desc { color: var(--gray-soft); font-size: 14.5px; line-height: 1.8; }
+
+    /* ---------- About ---------- */
+    .about-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* ---------- Works ---------- */
+    .work-grid { grid-template-columns: repeat(3, 1fr); }
+
+    /* ---------- V2.2.0 Claymorphism 黏土拟态卡片版：项目3+技能2 共5张卡片（参考 namethatui.com/styles/claymorphism）——26px 大圆角 + 三阴影配方（外投影浮起/上亮下暗内阴影）；暖色马卡龙独立配色（珊瑚粉/头像同款浅蓝/桃粉红/奶油杏/粉莓）；缩略图内凹白凹槽；珊瑚胶囊按钮悬停按扁；技能气泡白底立体（作用域收窄 .skill-card .chip）；「关于我」等其余板块与 V2.1.1 完全一致；data-zh 69 零改动 ---------- */
+    /* V2.2.1：项目与作品「个人主页 V1」卡片（work-grid nth-child(1)）珊瑚粉 #ffb8a3 → 更浅 #ffd4c4，阴影同步调淡 rgba(205,150,130)；其余卡片与所有模块零改动；data-zh 69 零改动 */
+    /* V2.2.2：项目与作品第 2 张卡「作品占位 ✨」→ 真实 Scratch 小游戏卡（用户 .sb3 解析：eggy 蛋蛋+奶龙+蛋糕/香蕉/苹果/芝士泡芙；拖食物喂蛋蛋、喂到 10kg 奶龙追鼠标）；缩略图=用户 sb3 角色「奶龙」造型透明 PNG（scratch-milkdragon.png 720×720）；卡片配色/其余模块与 data-zh 69 零改动 */；用户已发布 Scratch 在线分享链接并定名「蛋蛋餐厅」（https://scratch.mit.edu/projects/1382097434，卡片链接已填入、新窗口打开；不用游戏站上的随便取的标题）
+    /* V2.2.3：项目与作品第 3 张卡「作品占位 🎨」→ 真实爱好成果卡「棉花娃娃 & 拼豆」：缩略图 emoji 🧸（后续可换照片）、描述真实爱好；链接跳转新展示页 gallery-crafts.html（新窗口，与主页同款粉白灰设计+中英切换，棉花娃娃/拼豆各 3 个相框占位，照片待用户上传后填充）；占位提示更新；其余模块与 data-zh 69 零改动 */
+    /* V2.2.4：第 3 张卡缩略图 🧸 emoji → 真实照片（gallery-images/doll-uniform-lights.jpg 双娃夜景，复用 V2.2.2 的 .thumb-img 规则 76×76 cover）；展示页 gallery-crafts.html 同步升级：填入全部真实照片（棉花娃娃 6 框含「一对大头照」组合框并排+爱心分隔、拼豆 5 框）、美乐蒂挂件照旋转回正、界面更可爱化（漂浮装饰/拍立得相框/hover 上浮/心跳爱心/徽章/虚线贴纸眉标）；其余模块与 data-zh 69 零改动 */
+    /* V2.2.5：第 3 张卡缩略图 → 像素风库洛米头像（kuromi-thumb.png，AI 生成像素风三丽鸥风头像、泛洪/行列边界/水印区三重抠图去白底与 DeepWorks AI 水印，透明底 943×883→240×226）；蛋蛋餐厅简介精简为一句话；展示页：删除全部照片标题、💗→💖、中英文案自然化（中文页不再夹英文，eyebrow/hero/板块说明拆分 data-zh/data-en）；其余模块与 data-zh 69 零改动 */
+    /* 基础黏土配方（默认淡粉，各卡覆盖成马卡龙色） */
+    .work-card, .skill-card {
+      background: #ffb8a3;
+      border: none;
+      border-radius: 26px;
+      box-shadow: 0 20px 36px rgba(200,120,85,.2),
+                  inset 0 -8px 14px rgba(200,120,85,.18),
+                  inset 0 6px 12px rgba(255,255,255,.75);
+    }
+    .work-card:hover, .skill-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 42px rgba(200,120,85,.22),
+                  inset 0 -8px 14px rgba(200,120,85,.18),
+                  inset 0 6px 12px rgba(255,255,255,.75);
+    }
+    /* 每张卡片独立马卡龙色（鲜艳和谐：同亮度同饱和度家族） */
+    .work-grid .work-card:nth-child(1) { background: #ffd4c4; box-shadow: 0 20px 36px rgba(205,150,130,.2), inset 0 -8px 14px rgba(205,150,130,.18), inset 0 6px 12px rgba(255,255,255,.75); }
+    .work-grid .work-card:nth-child(2) { background: #a9d6f2; box-shadow: 0 20px 36px rgba(100,150,185,.25), inset 0 -8px 14px rgba(100,150,185,.2), inset 0 6px 12px rgba(255,255,255,.8); }
+    .work-grid .work-card:nth-child(3) { background: #ff9fb2; box-shadow: 0 20px 36px rgba(205,95,125,.2), inset 0 -8px 14px rgba(205,95,125,.18), inset 0 6px 12px rgba(255,255,255,.75); }
+    .skill-grid .skill-card:nth-child(1) { background: #ffe1a8; box-shadow: 0 20px 36px rgba(205,155,70,.2), inset 0 -8px 14px rgba(205,155,70,.18), inset 0 6px 12px rgba(255,255,255,.75); }
+    .skill-grid .skill-card:nth-child(2) { background: #ffb0c4; box-shadow: 0 20px 36px rgba(200,95,125,.2), inset 0 -8px 14px rgba(200,95,125,.18), inset 0 6px 12px rgba(255,255,255,.75); }
+    .work-card:hover, .skill-card:hover { box-shadow: 0 24px 42px rgba(150,110,150,.24), inset 0 -8px 14px rgba(150,110,150,.18), inset 0 6px 12px rgba(255,255,255,.75); }
+    /* 鲜艳底上文字加深保证对比度 */
+    .work-card .card-desc, .skill-card .card-desc { color: #5f545c; }
+    /* 缩略图：内凹白色凹槽，凸显黏土膨胀 */
+    .work-card .thumb {
+      background: rgba(255,255,255,.45);
+      box-shadow: inset 0 3px 8px rgba(160,110,140,.14);
+    }
+    /* V2.2.2：真实作品缩略图（sb3 角色造型图，透明底） */
+    .work-card .thumb-img {
+      width: 76px; height: 76px; object-fit: contain;
+      display: block; margin: 0 auto;
+    }
+    /* 珊瑚按钮（参考页按钮同款鲜艳色）+ 白字 */
+    .work-card .work-link {
+      display: inline-block; margin-top: 14px; padding: 10px 20px;
+      border-radius: 999px; font-size: 14px; font-weight: 700;
+      color: #ffffff; background: #ff8a70;
+      box-shadow: 0 10px 18px rgba(210,110,80,.3),
+                  inset 0 -5px 9px rgba(190,80,55,.22),
+                  inset 0 4px 8px rgba(255,255,255,.45);
+      transition: box-shadow .2s, transform .15s;
+    }
+    .work-card .work-link:hover {
+      transform: translateY(1px);
+      box-shadow: 0 6px 12px rgba(210,110,80,.25),
+                  inset 0 -3px 6px rgba(190,80,55,.25),
+                  inset 0 8px 12px rgba(190,80,55,.14);
+      text-decoration: none;
+    }
+
+    .placeholder-note {
+      background: var(--paper-2); color: var(--gray); padding: 13px 18px;
+      border-radius: 14px; font-size: 14px; margin-top: 22px;
+      border: 1px solid var(--line);
+    }
+
+/* ---------- Skills ---------- */
+    .skill-grid { grid-template-columns: repeat(2, 1fr); }
+    .skill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .skill-card .chip {
+      font-size: 13.5px; padding: 7px 15px; border-radius: 999px;
+      background: #ffffff; color: var(--gray); border: none;
+      box-shadow: 0 4px 10px rgba(163,177,198,.22),
+                  inset 0 -2px 4px rgba(163,177,198,.12),
+                  inset 0 2px 4px rgba(255,255,255,.95);
+    }
+    .skill-card .chip.rose {
+      background: #fff0f4; color: var(--rose-deep); border: none;
+      box-shadow: 0 4px 10px rgba(196,105,126,.2),
+                  inset 0 -2px 4px rgba(196,105,126,.12),
+                  inset 0 2px 4px rgba(255,255,255,.95);
+    }
+
+    /* ---------- Digital twin ---------- */
+    .think-content { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    .think-content .box { flex: 1; min-width: 220px; }
+    .think-visual {
+      width: 128px; height: 128px; border-radius: 50%; flex: none;
+      background: linear-gradient(135deg, var(--pink), var(--rose));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 44px; box-shadow: var(--shadow-sm);
+    }
+    .think-q {
+      background: var(--paper-2); border: 1px solid var(--line);
+      border-radius: 14px; padding: 12px 16px; font-size: 14px; color: var(--gray); margin-top: 12px;
+    }
+    .think-q b { color: var(--rose-deep); }
+
+    /* ---------- Contact ---------- */
+    .contact-card { text-align: center; }
+    .contact-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+    .contact-item { font-size: 16px; color: var(--gray-strong); }
+    .contact-item b { color: var(--rose); font-weight: 700; }
+    .contact-item a { color: var(--rose-deep); border-bottom: 1px solid var(--pink); }
+    .contact-item a:hover { text-decoration: none; color: var(--rose); }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      border-top: 1px solid var(--line);
+      text-align: center; padding: 34px 0 48px; color: var(--gray-soft); font-size: 14px;
+      margin-top: 16px;
+    }
+    .footer .footer-brand { color: var(--rose); font-weight: 600; }
+
+    /* ========== V1.5 中英切换模块 ========== */
+    button { font: inherit; }
+    .lang-toggle {
+      appearance: none; -webkit-appearance: none; cursor: pointer;
+      background: var(--card); color: var(--rose);
+      border: 1px solid var(--pink); border-radius: 999px;
+      padding: 8px 15px; font-weight: 700; font-size: 13px; letter-spacing: .5px;
+      transition: background .2s, color .2s, transform .15s; flex: none;
+    }
+    .lang-toggle:hover { background: var(--blush); transform: translateY(-1px); }
+
+    /* 英文版标题：衬线 + 深棕（仿参考截图） */
+    body.lang-en .hero h1,
+    body.lang-en .section-head h2,
+    body.lang-en .card-title {
+      font-family: "Didot", "Bodoni MT", "Playfair Display", "Iowan Old Style", Georgia, "Times New Roman", serif;
+      color: #3a2f2a;
+    }
+    body.lang-en .hero h1 span { color: var(--rose-deep); }
+    body.lang-en .hero h1::before { content: "("; color: #b7988f; font-weight: 300; }
+    body.lang-en .hero h1::after  { content: ")"; color: #b7988f; font-weight: 300; }
+
+    /* 英文版正文：粗细深浅对比（标签粗/深，值细/浅） */
+    body.lang-en .card-desc, body.lang-en .tagline { color: #8b8289; font-weight: 300; }
+    body.lang-en .contact-item b { color: #3a302b; font-weight: 800; }
+    body.lang-en .contact-item .val { color: #9a9298; font-weight: 300; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      body::before, body::after { width: 120px; }
+    }
+    @media (max-width: 820px) {
+      .hero { padding: 84px 0 60px; }
+      .hero h1 { font-size: 40px; }
+      .nav a { display: none; }
+      .about-grid, .skill-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      body::before, body::after { display: none; }
+      .work-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 32px; }
+      .cta { padding: 9px 15px; }
+    }
+    /* ========== V2.0.8 像素光标：载入页=猫（用户上传图抠图，保持不动），正式页=兔子（用户上传图抠图） ========== */
+    body, body * { cursor: url('cursor-bunny.png') 45 48, auto !important; }
+    #splash, #splash * { cursor: url('cursor-cat.png') 48 44, auto !important; }
+    /* V2.1.1: 仅悬停正式页交互按钮（了解我/联系我）时显示新白猫光标；其余区域保持现版本（载入页猫/正式页兔）不变 */
+    .btn-primary, .btn-primary *, .btn-ghost, .btn-ghost * { cursor: url('cursor-bunny-btn.png') 48 37, auto !important; }
+    /* V2.1.1: 仅悬停载入页交互键时显示新灰兔光标（其余区域保持猫/兔不变） */
+    #splash .splash-btn, #splash .splash-btn * { cursor: url('cursor-cat-btn.png') 48 44, auto !important; }
+  </style>
+
+  <style id="v2-splash-style">
+    /* ========== V2.0.0 载入页面 ========== */
+    #splash {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      background:
+        radial-gradient(1050px 540px at 12% -4%, var(--blush) 0%, rgba(255,255,255,0) 62%),
+        radial-gradient(920px 470px at 96% 6%, #f2f6f5 0%, rgba(255,255,255,0) 58%),
+        var(--paper);
+      overflow: hidden;
+      transition: opacity .95s cubic-bezier(.4,0,.2,1);
+    }
+    /* 载入页左右枝条装饰，与正式页面一致 */
+    #splash::before, #splash::after {
+      content: ""; position: absolute; top: 36px; bottom: 6px;
+      width: 200px; height: 680px;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgNjgwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjY4MCIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTQwIDggQyA4NiAxMTgsIDUyIDI0OCwgOTYgMzUwIEMgMTI4IDQyOCwgMTAwIDUyOCwgMTUwIDY2MCIgc3Ryb2tlPSIjZDZjMWM5IiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02MCAxNjAgQyAxMDQgMTU4LCAxMzIgMTMwLCAxNTggMTIyIiBzdHJva2U9IiNkNmMxYzkiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTcyIDI3MCBDIDExMiAyNTgsIDE0MCAyMjYsIDE2MCAyMTIiIHN0cm9rZT0iI2Q2YzFjOSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMTA0IDQxNiBDIDQ2IDQxNCwgMTQgMzgyLCA0IDM2MiIgc3Ryb2tlPSIjZDZjMWM5IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMjAgNTIwIEMgMTc2IDUxMiwgMTQ2IDQ3OCwgMTc4IDQ1MiIgc3Ryb2tlPSIjYzliMGJhIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxnIGZpbGw9IiNlY2NhZDMiPjxlbGxpcHNlIGN4PSIxNjAiIGN5PSI5NiIgcng9IjExIiByeT0iMjciIHRyYW5zZm9ybT0icm90YXRlKDQ0IDE2MCA5NikiLz48ZWxsaXBzZSBjeD0iMTYwIiBjeT0iMjA0IiByeD0iMTEiIHJ5PSIyNyIgdHJhbnNmb3JtPSJyb3RhdGUoMzQgMTYwIDIwNCkiLz48ZWxsaXBzZSBjeD0iNDgiIGN5PSIzNTYiIHJ4PSIxMiIgcnk9IjI5IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjIgNDggMzU2KSIvPjxlbGxpcHNlIGN4PSIxMjAiIGN5PSI1MTIiIHJ4PSIxMSIgcnk9IjI3IiB0cmFuc2Zvcm09InJvdGF0ZSgxOCAxMjAgNTEyKSIvPjxlbGxpcHNlIGN4PSIxNTAiIGN5PSI2MDAiIHJ4PSIxMSIgcnk9IjI3IiB0cmFuc2Zvcm09InJvdGF0ZSgyNiAxNTAgNjAwKSIvPjwvZz48ZyBmaWxsPSIjZjRkYmUyIj48ZWxsaXBzZSBjeD0iMTc0IiBjeT0iODQiIHJ4PSIxMCIgcnk9IjI1IiB0cmFuc2Zvcm09InJvdGF0ZSg1OCAxNzQgODQpIi8+PGVsbGlwc2UgY3g9IjE3NiIgY3k9IjE5MiIgcng9IjEwIiByeT0iMjQiIHRyYW5zZm9ybT0icm90YXRlKDUyIDE3NiAxOTIpIi8+PGVsbGlwc2UgY3g9IjYwIiBjeT0iMzc0IiByeD0iMTAiIHJ5PSIyNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ2IDYwIDM3NCkiLz48ZWxsaXBzZSBjeD0iMTUwIiBjeT0iNTAwIiByeD0iMTAiIHJ5PSIyNCIgdHJhbnNmb3JtPSJyb3RhdGUoMzggMTUwIDUwMCkiLz48L2c+PGcgZmlsbD0iI2ZmZiI+PGNpcmNsZSBjeD0iMTc4IiBjeT0iMTMyIiByPSI3Ii8+PGNpcmNsZSBjeD0iMTg4IiBjeT0iMTIxIiByPSI5Ii8+PGNpcmNsZSBjeD0iMTg0IiBjeT0iMTQ2IiByPSI2Ii8+PGNpcmNsZSBjeD0iMTIiIGN5PSIzNDAiIHI9IjYiLz48Y2lyY2xlIGN4PSIxNzYiIGN5PSI0NjgiIHI9IjciLz48Y2lyY2xlIGN4PSIxNjYiIGN5PSI0NzgiIHI9IjYiLz48L2c+PGcgZmlsbD0iI2VlZDNkYSI+PGNpcmNsZSBjeD0iMTgyIiBjeT0iMTMyIiByPSIxMSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMzQyIiByPSI4Ii8+PGNpcmNsZSBjeD0iMTc4IiBjeT0iNDcwIiByPSI5Ii8+PC9nPjwvc3ZnPg==') no-repeat left top / auto 100%;
+      opacity: .6; pointer-events: none;
+    }
+    #splash::before { left: 0; }
+    #splash::after  { right: 0; transform: scaleX(-1); }
+
+    /* 载入页背景装饰层：粉白灰系图案缓慢游动（V2.0.3） */
+    .splash-deco {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      overflow: hidden;
+    }
+    .deco {
+      position: absolute; display: block;
+      background-repeat: no-repeat; background-size: contain;
+      opacity: .30;
+    }
+    .deco-flower { width: 46px; height: 46px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PGcgZmlsbD0icmdiKDI0NiwxNjksMTk1KSI+PGVsbGlwc2UgY3g9IjIwIiBjeT0iMTAiIHJ4PSI3IiByeT0iMTEiLz48ZWxsaXBzZSBjeD0iMjAiIGN5PSIzMCIgcng9IjciIHJ5PSIxMSIvPjxlbGxpcHNlIGN4PSIxMCIgY3k9IjIwIiByeD0iMTEiIHJ5PSI3Ii8+PGVsbGlwc2UgY3g9IjMwIiBjeT0iMjAiIHJ4PSIxMSIgcnk9IjciLz48L2c+PGVsbGlwc2UgY3g9IjIwIiBjeT0iMjAiIHJ4PSI4IiByeT0iOCIgZmlsbD0icmdiKDI0NSwyMDksMjIyKSIvPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjMuNSIgZmlsbD0icmdiKDI1NSwyNTUsMjU1KSIvPjwvc3ZnPg=='); margin-left: -23px; margin-top: -23px; animation: driftA 14s ease-in-out -3s infinite; }
+    .deco-star   { width: 22px; height: 22px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHBhdGggZD0iTTIwIDUgTDI0IDE2IEwzNSAyMCBMMjQgMjQgTDIwIDM1IEwxNiAyNCBMNSAyMCBMMTYgMTYgWiIgZmlsbD0icmdiKDI0NCwxNjcsMTk1KSIvPjwvc3ZnPg=='); animation: driftB 12s ease-in-out -2s infinite; }
+    .deco-cloud  { width: 56px; height: 32px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzNCI+PGcgZmlsbD0icmdiKDI1NSwyNTUsMjU1KSI+PGNpcmNsZSBjeD0iMTgiIGN5PSIyMiIgcj0iMTEiLz48Y2lyY2xlIGN4PSIzNCIgY3k9IjE1IiByPSIxMyIvPjxjaXJjbGUgY3g9IjQ2IiBjeT0iMjMiIHI9IjkiLz48L2c+PC9zdmc+'); animation: driftC 16s ease-in-out -4s infinite; opacity: .45; }
+    .deco-bow    { width: 30px; height: 18px; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NCAyNiI+PHBhdGggZD0iTTYgNCBRMjAgLTggMjIgMTIgUTI0IC04IDM4IDQgUTMyIDE1IDIyIDEyIFExMiAxNSA2IDQgWiIgZmlsbD0icmdiKDI0NCwxNjcsMTk1KSIvPjxjaXJjbGUgY3g9IjIyIiBjeT0iMjIiIHI9IjUiIGZpbGw9InJnYigyMzIsMTM4LDE2OCkiLz48L3N2Zz4='); animation: driftA 13s ease-in-out -3s infinite; }
+    .deco-pearl  { width: 26px; height: 9px;  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAyMCI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iNyIgZmlsbD0icmdiKDI0MCwyMDAsMjE0KSIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iMTAiIHI9IjciIGZpbGw9InJnYigyNTUsMjU1LDI1NSkiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjEwIiByPSI3IiBmaWxsPSJyZ2IoMjQwLDIwMCwyMTQpIi8+PC9zdmc+'); animation: driftB 15s ease-in-out -5s infinite; }
+
+    @keyframes driftA {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      50%  { transform: translate(18px, 12px) rotate(6deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    @keyframes driftB {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      50%  { transform: translate(-16px, 11px) rotate(-5deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    @keyframes driftC {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      50%  { transform: translate(12px, -16px) rotate(7deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    .splash-inner {
+      position: relative; z-index: 1;
+      text-align: center;
+      transition: opacity .7s ease, transform .9s cubic-bezier(.4,0,.2,1);
+    }
+    /* 头像：占画面最主体，与正式页面同款光圈 */
+    .splash-avatar {
+      width: 300px; height: 300px;
+      max-width: 60vmin; max-height: 60vmin;
+      border-radius: 50%; object-fit: cover;
+      box-shadow: 0 0 0 7px #fff, 0 0 0 12px var(--pink-soft), 0 22px 44px rgba(196,105,126,.22);
+      animation: splashIn 1s cubic-bezier(.22,.61,.36,1) both;
+    }
+    /* 名字行：名字 + 两侧吉祥物（黑猫左 / 白兔右），关于名字中心对称 */
+    .splash-name-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; margin-top: 34px;
+    }
+    /* 吉祥物：宽度与兔子显示宽度一致（43px），高等比（猫原图偏方，固定高度会显得过宽） */
+    .splash-mascot {
+      width: 43px; height: auto; display: block; object-fit: contain;
+      animation: splashIn 1s cubic-bezier(.22,.61,.36,1) both;
+    }
+    .splash-mascot-left  { animation-delay: .05s; }
+    .splash-mascot-right { animation-delay: .19s; }
+    /* 名字：衬线字体（与截图一致），字号大于交互键、作为头像下的次主体，颜色取与背景和谐的玫粉 */
+    .splash-name {
+      margin-top: 0;
+      font-family: var(--serif); font-weight: 600;
+      font-size: 30px; letter-spacing: 10px; color: var(--rose);
+      animation: splashIn 1s cubic-bezier(.22,.61,.36,1) .12s both;
+    }
+    /* 交互键：贴纸风胶囊（V2.0.6 仿图：灰底 + 内侧白色虚线缝边 + 左粉星右粉云） */
+    .splash-btn {
+      position: relative;
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 18px;
+      margin-top: 24px;
+      appearance: none; -webkit-appearance: none; cursor: pointer;
+      background: #c8c8c8; color: #fff;
+      border: none; border-radius: 999px;
+      padding: 24px 30px;
+      font-family: var(--serif); font-size: 20px; font-weight: 600;
+      letter-spacing: 2px;
+      transition: transform .18s, background .25s;
+      animation: splashIn 1s cubic-bezier(.22,.61,.36,1) .24s both;
+    }
+    /* 内侧白色虚线缝边（贴纸效果，SVG 矢量精确控制线宽/段长/间隔，随胶囊圆角走） */
+    .splash-btn::before {
+      content: ''; position: absolute; inset: 7px;
+      border-radius: 999px;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTQgMzQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxyZWN0IHg9IjEiIHk9IjEiIHdpZHRoPSIxOTIiIGhlaWdodD0iMzIiIHJ4PSIxNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjAuNiIgc3Ryb2tlLWRhc2hhcnJheT0iMyA1Ii8+PC9zdmc+') center/100% 100% no-repeat;
+      pointer-events: none;
+    }
+    /* 左侧粉色五角星 / 右侧粉色云朵（与参考图一致） */
+    .splash-btn-star, .splash-btn-cloud {
+      flex: none;
+      background-repeat: no-repeat; background-size: contain; background-position: center;
+    }
+    .splash-btn-star  { width: 38px; height: 38px; background-image: url('splash-star.png'); }
+    .splash-btn-cloud { width: 48px; height: 34px; background-image: url('splash-cloud.png'); }
+    .splash-btn:hover  { transform: translateY(-3px); background: #9e9e9e; }
+    .splash-btn:active { transform: translateY(-1px) scale(.98); }
+
+    @keyframes splashIn {
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 点击进入：载入页淡出上浮 */
+    #splash.leaving { opacity: 0; pointer-events: none; }
+    #splash.leaving .splash-inner { opacity: 0; transform: translateY(-34px); }
+
+    /* 正式页面淡入上滑，衔接自然 */
+    body.splash-entered > .header,
+    body.splash-entered > .container,
+    body.splash-entered > .footer {
+      animation: splashEnter .9s cubic-bezier(.22,.61,.36,1) .18s both;
+    }
+    @keyframes splashEnter {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 载入页中英切换按钮（右上角，样式与正式页 EN 按钮一致） */
+    .splash-lang-toggle {
+      position: fixed; top: 22px; right: 28px; z-index: 3;
+      appearance: none; -webkit-appearance: none; cursor: pointer;
+      background: var(--card); color: var(--rose);
+      border: 1px solid var(--pink); border-radius: 999px;
+      padding: 8px 15px; font-weight: 700; font-size: 13px; letter-spacing: .5px;
+      font-family: var(--sans);
+      transition: background .2s, color .2s, transform .15s;
+    }
+    .splash-lang-toggle:hover { background: var(--blush); transform: translateY(-1px); }
+
+    /* 载入页英文模式：文字换英文，字体与正式页面英文字体一致 */
+    #splash.en .splash-name,
+    #splash.en .splash-btn {
+      font-family: "Didot", "Bodoni MT", "Playfair Display", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    }
+    #splash.en .splash-name { color: var(--rose); }
+
+    @media (max-width: 620px) {
+      #splash::before, #splash::after { display: none; }
+      .splash-avatar { width: 210px; height: 210px; }
+      .splash-wrap { --r: 133px; --r2: 115px; --rs: 117px; }
+      .orbit-el.star { width: 20px; height: 20px; margin: -10px 0 0 -10px; }
+      .orbit-el.wave { width: 38px; height: 20px; margin: -10px 0 0 -19px; }
+      .splash-name-row { gap: 10px; margin-top: 30px; }
+      .splash-mascot  { width: 33px; }
+      .deco-flower { width: 32px; height: 32px; margin-left: -16px; margin-top: -16px; }
+      .deco-star   { width: 16px; height: 16px; }
+      .deco-cloud  { width: 38px; height: 22px; }
+      .deco-bow    { width: 22px; height: 13px; }
+      .deco-pearl  { width: 18px; height: 6px; }
+      .splash-deco .deco:nth-child(6), .splash-deco .deco:nth-child(8),
+      .splash-deco .deco:nth-child(10), .splash-deco .deco:nth-child(12) { display: none; }
+      .splash-name  { font-size: 24px; letter-spacing: 7px; }
+      .splash-btn   { font-size: 17px; padding: 18px 24px; gap: 12px; }
+      .splash-btn::before { inset: 6px; }
+      .splash-btn-star  { width: 29px; height: 29px; }
+      .splash-btn-cloud { width: 37px; height: 26px; }
+      .splash-lang-toggle { top: 14px; right: 16px; padding: 7px 12px; font-size: 12px; }
+    }
+
+    /* ========== V3.0.0 反馈模块（悬浮入口 + 弹窗表单） ========== */
+    .fb-fab {
+      position: fixed; right: 26px; bottom: 26px; z-index: 80;
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--rose); color: #fff;
+      padding: 13px 20px; border: none; border-radius: 999px;
+      font-family: var(--sans); font-size: 14.5px; font-weight: 700; letter-spacing: .3px;
+      box-shadow: 0 14px 30px rgba(176,116,138,.35);
+      cursor: pointer; transition: transform .18s, box-shadow .25s, background .2s;
+    }
+    .fb-fab:hover { transform: translateY(-3px); background: var(--rose-deep); box-shadow: 0 18px 36px rgba(176,116,138,.42); }
+    .fb-fab .fb-fab-ico { font-size: 17px; line-height: 1; }
+
+    .fb-overlay {
+      position: fixed; inset: 0; z-index: 90;
+      background: rgba(74,67,72,.38);
+      display: none; align-items: flex-end; justify-content: center;
+    }
+    .fb-overlay.open { display: flex; }
+    @media (min-width: 620px) {
+      .fb-overlay { align-items: center; }
+    }
+
+    .fb-modal {
+      width: min(520px, 100%); max-height: 88vh; overflow: auto;
+      background: var(--card); border-radius: 28px 28px 0 0;
+      padding: 30px 28px 26px; position: relative;
+      box-shadow: 0 24px 60px rgba(74,67,72,.3);
+      animation: fb-pop .28s ease-out;
+    }
+    @media (min-width: 620px) {
+      .fb-modal { border-radius: 28px; }
+    }
+    @keyframes fb-pop {
+      from { opacity: 0; transform: translateY(24px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .fb-close {
+      position: absolute; top: 14px; right: 16px;
+      background: none; border: none; cursor: pointer;
+      font-size: 20px; color: var(--gray-soft); line-height: 1; padding: 6px;
+      border-radius: 50%; transition: background .2s, color .2s;
+    }
+    .fb-close:hover { background: var(--blush); color: var(--rose); }
+    .fb-title {
+      font-family: var(--serif); font-size: 22px; font-weight: 600;
+      color: var(--gray-strong); letter-spacing: 1px; margin-bottom: 4px;
+    }
+    .fb-note {
+      font-size: 13px; color: var(--gray-soft); margin-bottom: 18px; line-height: 1.6;
+    }
+    .fb-field { margin-bottom: 14px; }
+    .fb-label {
+      display: block; font-size: 13px; font-weight: 700; color: var(--gray);
+      margin-bottom: 6px; letter-spacing: .3px;
+    }
+    .fb-label em { font-style: normal; color: var(--rose); }
+    .fb-input, .fb-select, .fb-textarea {
+      width: 100%; font-family: var(--sans); font-size: 14.5px; color: var(--gray-strong);
+      background: var(--paper); border: 1.5px solid var(--line);
+      border-radius: 14px; padding: 11px 14px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .fb-input:focus, .fb-select:focus, .fb-textarea:focus {
+      border-color: var(--pink); box-shadow: 0 0 0 4px rgba(228,182,194,.22);
+      background: #fff;
+    }
+    .fb-textarea { min-height: 110px; resize: vertical; line-height: 1.7; }
+    .fb-hint { font-size: 12px; color: var(--gray-soft); margin-top: 5px; line-height: 1.5; }
+    .fb-error {
+      display: none; font-size: 13px; color: #c0392b; background: #fdecea;
+      border-radius: 12px; padding: 9px 13px; margin: 4px 0 12px; line-height: 1.5;
+    }
+    .fb-error.show { display: block; }
+    .fb-submit {
+      width: 100%; margin-top: 4px;
+      background: var(--rose); color: #fff; border: none;
+      border-radius: 999px; padding: 13px 20px;
+      font-family: var(--sans); font-size: 15px; font-weight: 700; letter-spacing: .5px;
+      cursor: pointer; box-shadow: 0 10px 22px rgba(176,116,138,.3);
+      transition: transform .15s, background .2s, box-shadow .2s, opacity .2s;
+    }
+    .fb-submit:hover:not(:disabled) { transform: translateY(-2px); background: var(--rose-deep); }
+    .fb-submit:disabled { opacity: .6; cursor: not-allowed; }
+    .fb-success {
+      display: none; text-align: center; padding: 14px 0 6px;
+    }
+    .fb-success.show { display: block; }
+    .fb-success-ico { font-size: 40px; }
+    .fb-success-title {
+      font-family: var(--serif); font-size: 20px; font-weight: 600;
+      color: var(--rose); margin: 8px 0 4px;
+    }
+    .fb-success-text { font-size: 14px; color: var(--gray-soft); }
+    .fb-again {
+      margin-top: 16px; background: var(--blush); color: var(--rose-deep);
+      border: 1px solid var(--pink); border-radius: 999px; padding: 9px 20px;
+      font-family: var(--sans); font-size: 13.5px; font-weight: 700; cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .fb-again:hover { background: var(--pink-soft); transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+  <!-- ========== V2.0.0 载入页面（V2.0.1 更新） ========== -->
+  <div id="splash">
+    <button class="splash-lang-toggle" id="splash-lang" type="button" aria-label="切换语言 / Switch language">EN</button>
+
+    <div class="splash-deco" aria-hidden="true">
+      <!-- 花位=用户截图黑圈中心：左（25.6/22.7/27.2），右侧严格轴对称（74.4/77.3/72.8） -->
+      <span class="deco deco-flower" style="left:25.6%; top:13.6%;"></span>
+      <span class="deco deco-flower" style="left:22.7%; top:44.9%;"></span>
+      <span class="deco deco-flower" style="left:27.2%; top:74.4%;"></span>
+      <span class="deco deco-flower" style="left:74.4%; top:13.6%;"></span>
+      <span class="deco deco-flower" style="left:77.3%; top:44.9%;"></span>
+      <span class="deco deco-star"   style="left:86%; top:7%;"></span>
+      <span class="deco deco-flower" style="left:72.8%; top:74.4%;"></span>
+      <span class="deco deco-star"   style="left:88%; top:32%;"></span>
+      <span class="deco deco-cloud"  style="left:11%; top:70%;"></span>
+      <span class="deco deco-cloud"  style="left:16%; top:90%; width:44px; height:25px; opacity:.32;"></span>
+      <span class="deco deco-cloud"  style="left:42%; top:8%;  width:44px; height:25px; opacity:.32;"></span>
+      <span class="deco deco-bow"    style="left:79%; top:62%;"></span>
+      <span class="deco deco-pearl"  style="left:52%; top:10%;"></span>
+    </div>
+
+    <div class="splash-inner">
+      <span class="avatar-wrap splash-wrap"><img class="splash-avatar" src="avatar-v1.5.png" alt="吴宇桐的头像" /><span class="avatar-orbit">
+        <svg class="orbit-el star star-1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+        <svg class="orbit-el star star-2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+        <svg class="orbit-el star star-3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+        <svg class="orbit-el star star-4" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+        <svg class="orbit-el star star-5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+        <svg class="orbit-el star star-6" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+        <svg class="orbit-el wave wave-1" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-2" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-3" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-4" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-5" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-6" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-w-1" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-w-2" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-w-3" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-w-4" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-w-5" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        <svg class="orbit-el wave wave-w-6" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+      </span></span>
+      <div class="splash-name-row">
+        <img class="splash-mascot splash-mascot-left" src="mascot-blackcat.png" alt="黑猫" />
+        <p class="splash-name" data-lang-zh="吴宇桐" data-lang-en="Wu Yutong">吴宇桐</p>
+        <img class="splash-mascot splash-mascot-right" src="mascot-whitebunny.png" alt="白兔" />
+      </div>
+      <button class="splash-btn" id="splash-enter" type="button">
+        <span class="splash-btn-star" aria-hidden="true"></span>
+        <span class="splash-btn-text" data-lang-zh="欢迎来到我的个人主页" data-lang-en="Welcome to My Homepage">欢迎来到我的个人主页</span>
+        <span class="splash-btn-cloud" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+
+  <header class="header">
+    <div class="container header-inner">
+      <div class="brand"><span class="brand-emoji">😈</span>吴宇桐</div>
+      <nav class="nav">
+        <a href="#about" data-zh="关于我" data-en="About Me">关于我</a>
+        <a href="#work" data-zh="项目与作品" data-en="Projects & Works">项目与作品</a>
+        <a href="#skills" data-zh="兴趣与技能" data-en="Interests & Skills">兴趣与技能</a>
+        <a href="#digital" data-zh="数字分身" data-en="Digital Twin">数字分身</a>
+        <a href="#contact" data-zh="联系我" data-en="Contact">联系我</a>
+      </nav>
+      <a href="#contact" class="cta" data-zh="打个招呼 👋" data-en="Say Hi 👋">打个招呼 👋</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="切换语言 / Switch language" title="中 / EN">EN</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div>
+        <h1 data-zh="嗨，我是<span>吴宇桐</span>" data-en="Hi, I'm <span>Wu Yutong</span>">嗨，我是<span>吴宇桐</span></h1>
+        <p class="tagline" data-zh="一个正在学习 AI 的大一新生。" data-en="A freshman learning AI.">一个正在学习 AI 的大一新生。</p>
+        <div class="tags">
+          <span class="tag" data-zh="🤖 AI 应用" data-en="🤖 AI Apps">🤖 AI 应用</span>
+          <span class="tag" data-zh="🧸 棉花娃娃" data-en="🧸 Cotton Plushies">🧸 棉花娃娃</span>
+          <span class="tag" data-zh="📚 看小说" data-en="📚 Reading Novels">📚 看小说</span>
+          <span class="tag mint" data-zh="🎀 拼豆" data-en="🎀 Perler Beads">🎀 拼豆</span>
+          <span class="tag mint" data-zh="🎧 听音乐" data-en="🎧 Music">🎧 听音乐</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#about" class="btn-primary" data-zh="了解我" data-en="About Me">了解我</a>
+          <a href="#contact" class="btn-ghost" data-zh="联系我" data-en="Contact">联系我</a>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <img class="cloud-deco cloud-left" src="cloud-left.png" alt="" aria-hidden="true" />
+        <img class="cloud-deco cloud-right" src="cloud-left.png" alt="" aria-hidden="true" />
+        <span class="avatar-wrap"><img class="avatar" src="avatar-v1.5.png" alt="我的棉花娃娃头像" /><span class="avatar-orbit">
+          <svg class="orbit-el star star-1" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+          <svg class="orbit-el star star-2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+          <svg class="orbit-el star star-3" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+          <svg class="orbit-el star star-4" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+          <svg class="orbit-el star star-5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+          <svg class="orbit-el star star-6" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.5 7.1.9-5.2 4.8 1.4 7L12 17.6 5.8 20.9l1.4-7-5.2-4.8 7.1-.9z" fill="#ffd98a"/></svg>
+          <svg class="orbit-el wave wave-1" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-2" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-3" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-4" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-5" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-6" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#a9d6f2" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-w-1" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-w-2" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-w-3" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-w-4" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-w-5" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+          <svg class="orbit-el wave wave-w-6" viewBox="0 0 38 20" aria-hidden="true"><path d="M2 10 Q7.5 3 13 10 T24 10 T35 10" stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/></svg>
+        </span></span>
+        <figcaption class="hero-caption" data-zh="我有一个小爱好：收集可爱的棉花娃娃 🌸" data-en="A little hobby of mine: collecting cute cotton plushies 🌸">我有一个小爱好：收集可爱的棉花娃娃 🌸</figcaption>
+      </figure>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-head">
+        <span class="eyebrow">About Me</span>
+        <h2 data-zh="关于我" data-en="About Me">关于我</h2>
+        <p data-zh="身份、方向，还有一点小特点。" data-en="Who I am, my direction, and a few little quirks.">身份、方向，还有一点小特点。</p>
+      </div>
+      <div class="grid about-grid">
+        <div class="about-card">
+          <div class="card-label" data-zh="身份" data-en="Identity">身份</div>
+          <div class="card-title" data-zh="大一学生" data-en="Freshman">大一学生</div>
+          <p class="card-desc" data-zh="正在学习数学、英语，阅读历史文献。" data-en="Studying math and English, and reading historical texts.">正在学习数学、英语，阅读历史文献。</p>
+        </div>
+        <div class="about-card">
+          <div class="card-label" data-zh="方向" data-en="Focus">方向</div>
+          <div class="card-title" data-zh="AI 应用" data-en="AI Applications">AI 应用</div>
+          <p class="card-desc" data-zh="对知识整理、AI 应用、智能医学比较感兴趣。" data-en="Interested in knowledge organization, AI applications, and intelligent medicine.">对知识整理、AI 应用、智能医学比较感兴趣。</p>
+        </div>
+        <div class="about-card">
+          <div class="card-label" data-zh="记忆点" data-en="Fun Fact">记忆点</div>
+          <div class="card-title" data-zh="很多棉花娃娃" data-en="Lots of Cotton Plushies">很多棉花娃娃</div>
+          <p class="card-desc" data-zh="常常给它们挑衣服、攒钱，一起拍照，超有成就感。" data-en="I often pick outfits for them, save up, and snap photos together — it's so rewarding.">常常给它们挑衣服、攒钱，一起拍照，超有成就感。</p>
+        </div>
+        <div class="about-card">
+          <div class="card-label" data-zh="生活" data-en="Life">生活</div>
+          <div class="card-title" data-zh="拼豆 · 音乐 · 三国" data-en="Perler · Music · Three Kingdoms">拼豆 · 音乐 · 三国</div>
+          <p class="card-desc" data-zh="周末出去拼豆，边听音乐边看《三国演义》。" data-en="Weekends are for perler beads, listening to music, and reading Romance of the Three Kingdoms.">周末出去拼豆，边听音乐边看《三国演义》。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work">
+      <div class="section-head">
+        <span class="eyebrow">Projects</span>
+        <h2 data-zh="项目与作品" data-en="Projects & Works">项目与作品</h2>
+        <p data-zh="这里会放我的代表性作品，方便快速了解我做过什么。" data-en="Highlights of my work, so you can quickly see what I've done.">这里会放我的代表性作品，方便快速了解我做过什么。</p>
+      </div>
+      <div class="grid work-grid">
+        <div class="work-card">
+          <div class="thumb">📂</div>
+          <div class="card-title" data-zh="个人主页 V1" data-en="Personal Site V1">个人主页 V1</div>
+          <p class="card-desc" data-zh="就是你现在看到的这个页面，作为课程的第一个版本。" data-en="That's the page you're viewing now, as the first version of the course.">就是你现在看到的这个页面，作为课程的第一个版本。</p>
+          <a class="work-link" href="#top" data-zh="查看示例 →" data-en="View example →">查看示例 →</a>
+        </div>
+        <div class="work-card">
+          <div class="thumb"><img class="thumb-img" src="scratch-milkdragon.png" alt="milk dragon"></div>
+          <div class="card-title" data-zh="蛋蛋餐厅" data-en="Egg Restaurant">蛋蛋餐厅</div>
+          <p class="card-desc" data-zh="用 Scratch 做的喂食小游戏：拖食物喂蛋蛋，喂饱后奶龙会追着鼠标跑 🍰🐉" data-en="A Scratch feeding game: drag food to feed the egg; once full, the milk dragon chases your cursor 🍰🐉">用 Scratch 做的喂食小游戏：拖食物喂蛋蛋，喂饱后奶龙会追着鼠标跑 🍰🐉</p>
+          <a class="work-link" href="https://scratch.mit.edu/projects/1382097434" target="_blank" rel="noopener" data-zh="在线试玩 →" data-en="Play it online →">在线试玩 →</a>
+        </div>
+        <div class="work-card">
+          <div class="thumb"><img class="thumb-img" src="kuromi-thumb.png" alt="库洛米像素头像"></div>
+          <div class="card-title" data-zh="棉花娃娃 &amp; 拼豆" data-en="Cotton Dolls &amp; Perler Beads">棉花娃娃 &amp; 拼豆</div>
+          <p class="card-desc" data-zh="我周末最爱的两个爱好：给棉花娃娃买衣服、一颗一颗拼豆。点进去看照片～" data-en="My two favourite weekend hobbies: dressing up cotton dolls and making perler bead art. Tap to see the photos!">我周末最爱的两个爱好：给棉花娃娃买衣服、一颗一颗拼豆。点进去看照片～</p>
+          <a class="work-link" href="gallery-crafts.html" target="_blank" rel="noopener" data-zh="查看作品 →" data-en="View gallery →">查看作品 →</a>
+        </div>
+      </div>
+      <div class="placeholder-note" data-zh="💡 卡片内容均来自真实作品；更多照片与在线链接会在后续版本补充，避免放置虚假信息。" data-en="💡 All cards show real work; more photos and online links will be added in later versions, so nothing shown here is false.">💡 卡片内容均来自真实作品；更多照片与在线链接会在后续版本补充，避免放置虚假信息。</div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-head">
+        <span class="eyebrow">Interests &amp; Skills</span>
+        <h2 data-zh="兴趣与技能" data-en="Interests & Skills">兴趣与技能</h2>
+        <p data-zh="除了学习，我也在认真生活和探索。" data-en="Besides studying, I also live and explore with care.">除了学习，我也在认真生活和探索。</p>
+      </div>
+      <div class="grid skill-grid">
+        <div class="skill-card">
+          <div class="card-title" data-zh="当前在做" data-en="Currently Doing">当前在做</div>
+          <div class="skill-row">
+            <span class="chip" data-zh="全英文专业课程" data-en="All-English Majors">全英文专业课程</span>
+            <span class="chip rose" data-zh="阅读历史文献" data-en="Reading Historical Texts">阅读历史文献</span>
+            <span class="chip" data-zh="给娃娃攒钱买衣服" data-en="Saving up for Plushie Outfits">给娃娃攒钱买衣服</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="card-title" data-zh="兴趣爱好" data-en="Hobbies">兴趣爱好</div>
+          <div class="skill-row">
+            <span class="chip rose" data-zh="看小说" data-en="Reading Novels">看小说</span>
+            <span class="chip" data-zh="拼豆" data-en="Perler Beads">拼豆</span>
+            <span class="chip rose" data-zh="听音乐" data-en="Listening to Music">听音乐</span>
+            <span class="chip" data-zh="三国演义" data-en="Three Kingdoms">三国演义</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital twin -->
+    <section id="digital">
+      <div class="section-head">
+        <span class="eyebrow">Digital Twin</span>
+        <h2 data-zh="数字分身" data-en="Digital Twin">数字分身</h2>
+        <p data-zh="未来它会代替我回答关于我的问题。" data-en="In the future it will answer questions about me on my behalf.">未来它会代替我回答关于我的问题。</p>
+      </div>
+      <div class="think-card">
+        <div class="think-content">
+          <div class="think-visual">💬</div>
+          <div class="box">
+            <div class="card-title" data-zh="聊天入口（原型占位）" data-en="Chat Entry (Prototype)">聊天入口（原型占位）</div>
+            <p class="card-desc" data-zh="正在规划一个能聊天的数字分身。现在先放一个示例入口，之后接入真实能力。" data-en="Planning a digital twin that can chat. For now this is a sample entry; real capability comes later.">正在规划一个能聊天的数字分身。现在先放一个示例入口，之后接入真实能力。</p>
+            <div class="think-q" data-zh="<b>“你是谁？”</b> —— 未来它会回答关于我的问题。" data-en="<b>“Who are you?”</b> — In the future it will answer questions about me."><b>“你是谁？”</b> —— 未来它会回答关于我的问题。</div>
+            <div class="think-q" data-zh="<b>“怎么联系你？”</b> —— 联系我页面会告诉你。" data-en="<b>“How do I contact you?”</b> — The contact section will tell you."><b>“怎么联系你？”</b> —— 联系我页面会告诉你。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-head">
+        <span class="eyebrow">Contact</span>
+        <h2 data-zh="联系我" data-en="Contact">联系我</h2>
+        <p data-zh="欢迎打个招呼，或者给我反馈。" data-en="Feel free to say hi or share your feedback.">欢迎打个招呼，或者给我反馈。</p>
+      </div>
+      <div class="contact-card">
+        <p class="card-desc" data-zh="欢迎打个招呼，或者给我反馈。" data-en="Feel free to say hi or share your feedback.">欢迎打个招呼，或者给我反馈。</p>
+        <div class="contact-list">
+          <div class="contact-item" data-zh="📮 邮箱：<a href=&quot;mailto:cvbnm098@qq.com&quot;>cvbnm098@qq.com</a>" data-en="<b>Email</b><span class=&quot;val&quot;> : cvbnm098@qq.com</span>">📮 邮箱：<a href="mailto:cvbnm098@qq.com">cvbnm098@qq.com</a></div>
+          <div class="contact-item" data-zh="☎️ 电话：<a href=&quot;tel:19168984091&quot;>19168984091</a>" data-en="<b>Phone</b><span class=&quot;val&quot;> : 19168984091</span>">☎️ 电话：<a href="tel:19168984091">19168984091</a></div>
+          <div class="contact-item" data-zh="🫧 微信：<span>zhyc5116</span>" data-en="<b>WeChat</b><span class=&quot;val&quot;> : zhyc5116</span>">🫧 微信：<span>zhyc5116</span></div>
+          <div class="contact-item" data-zh="🏙️ 城市：<span>深圳</span>" data-en="<b>City</b><span class=&quot;val&quot;> : Shenzhen</span>">🏙️ 城市：<span>深圳</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container" data-zh='<span class="footer-brand">© 2026 吴宇桐</span> · 用热爱做的个人主页 · <span id="year"></span>' data-en='<span class="footer-brand">© 2026 Wu Yutong</span> · Made with love · <span id="year"></span>'>
+      <span class="footer-brand">© 2026 吴宇桐</span> · 用热爱做的个人主页 · <span id="year"></span>
+    </div>
+  </footer>
+
+  <!-- ========== V3.0.0 反馈模块（悬浮入口 + 弹窗表单） ========== -->
+  <button class="fb-fab" id="fbFab" type="button" aria-haspopup="dialog" aria-controls="fbModal">
+    <span class="fb-fab-ico" aria-hidden="true">💬</span>
+    <span data-fb-zh="反馈" data-fb-en="Feedback">反馈</span>
+  </button>
+
+  <div class="fb-overlay" id="fbOverlay" role="dialog" aria-modal="true" aria-labelledby="fbTitle">
+    <div class="fb-modal" id="fbModal">
+      <button class="fb-close" id="fbClose" type="button" aria-label="关闭">✕</button>
+
+      <!-- 表单视图 -->
+      <form id="fbForm" novalidate>
+        <h3 class="fb-title" id="fbTitle" data-fb-zh="留下你的想法 ✍️" data-fb-en="Leave Your Thoughts ✍️">留下你的想法 ✍️</h3>
+        <p class="fb-note" data-fb-zh="你的反馈不会公开，只有我能看到。告诉我哪里看不懂、不好找、不好用，或任何想说的话～" data-fb-en="Your feedback stays private — only I can see it. Tell me what's confusing, hard to find, or anything on your mind.">你的反馈不会公开，只有我能看到。告诉我哪里看不懂、不好找、不好用，或任何想说的话～</p>
+
+        <div class="fb-field">
+          <label class="fb-label" for="fbName" data-fb-zh="昵称（可选）" data-fb-en="Nickname (optional)">昵称（可选）</label>
+          <input class="fb-input" id="fbName" name="name" type="text" maxlength="40" autocomplete="nickname" />
+        </div>
+
+        <div class="fb-field">
+          <label class="fb-label" for="fbRelation" data-fb-zh="你和我的关系" data-fb-en="Your relationship to me">你和我的关系</label>
+          <select class="fb-select" id="fbRelation" name="relation">
+            <option value="同学" data-fb-zh="同学" data-fb-en="Classmate">同学</option>
+            <option value="老师" data-fb-zh="老师" data-fb-en="Teacher">老师</option>
+            <option value="家人" data-fb-zh="家人" data-fb-en="Family">家人</option>
+            <option value="朋友" data-fb-zh="朋友" data-fb-en="Friend">朋友</option>
+            <option value="同事" data-fb-zh="同事" data-fb-en="Colleague">同事</option>
+            <option value="其他" data-fb-zh="其他" data-fb-en="Other">其他</option>
+            <option value="不便透露" data-fb-zh="不便透露" data-fb-en="Prefer not to say">不便透露</option>
+          </select>
+        </div>
+
+        <div class="fb-field">
+          <label class="fb-label" for="fbDevice" data-fb-zh="你用什么设备看的" data-fb-en="What device are you on?">你用什么设备看的</label>
+          <select class="fb-select" id="fbDevice" name="device">
+            <option value="电脑" data-fb-zh="电脑" data-fb-en="Computer">电脑</option>
+            <option value="手机" data-fb-zh="手机" data-fb-en="Phone">手机</option>
+            <option value="平板" data-fb-zh="平板" data-fb-en="Tablet">平板</option>
+            <option value="其他" data-fb-zh="其他" data-fb-en="Other">其他</option>
+          </select>
+        </div>
+
+        <div class="fb-field">
+          <label class="fb-label" for="fbMessage" data-fb-zh="反馈内容 <em>*</em>" data-fb-en="Message <em>*</em>">反馈内容 <em>*</em></label>
+          <textarea class="fb-textarea" id="fbMessage" name="message" required maxlength="1000" data-fb-ph-zh="例如：主页顶部那个“欢迎来到我的个人主页”按钮我一开始没找到……" data-fb-ph-en="e.g. I couldn't find the “Welcome” button on the splash screen at first…"></textarea>
+        </div>
+
+        <div class="fb-error" id="fbError" role="alert"></div>
+        <button class="fb-submit" id="fbSubmit" type="submit">
+          <span data-fb-zh="发送反馈" data-fb-en="Send Feedback">发送反馈</span>
+        </button>
+        <p class="fb-hint" data-fb-zh="提交后稍等 1-2 秒，看到 ✅ 才算成功。失败时内容会保留，可以直接重试。" data-fb-en="Wait 1-2s after submitting; you'll see ✅ on success. If it fails, your text is kept so you can retry.">提交后稍等 1-2 秒，看到 ✅ 才算成功。失败时内容会保留，可以直接重试。</p>
+      </form>
+
+      <!-- 成功视图 -->
+      <div class="fb-success" id="fbSuccess">
+        <div class="fb-success-ico" aria-hidden="true">💖</div>
+        <div class="fb-success-title" data-fb-zh="收到啦，谢谢你！" data-fb-en="Got it, thank you!">收到啦，谢谢你！</div>
+        <p class="fb-success-text" data-fb-zh="你的反馈已经安全送到，只有我能看到。" data-fb-en="Your feedback was delivered safely — only I can see it.">你的反馈已经安全送到，只有我能看到。</p>
+        <button class="fb-again" id="fbAgain" type="button" data-fb-zh="再写一条" data-fb-en="Write Another">再写一条</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 自动年份
+    function setYear() { document.getElementById('year').textContent = new Date().getFullYear(); }
+    setYear();
+
+    // 中英切换
+    var langToggle = document.getElementById('langToggle');
+    var isEn = false;
+    function applyLang(en) {
+      isEn = en;
+      document.querySelectorAll('[data-zh]').forEach(function (el) {
+        el.innerHTML = en ? el.getAttribute('data-en') : el.getAttribute('data-zh');
+      });
+      document.body.classList.toggle('lang-en', en);
+      langToggle.textContent = en ? '中' : 'EN';
+      setYear();
+    }
+    langToggle.addEventListener('click', function () { applyLang(!isEn); });
+  </script>
+
+  <script>
+    // ========== V3.0.0 反馈模块（Supabase 接入） ==========
+    (function () {
+      // —— 配置区：由用户从 Supabase 控制台复制填入 ——
+      var SUPABASE_URL = 'https://dhydtsaabtxdoepqyxeo.supabase.co';
+      var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoeWR0c2FhYnR4ZG9lcHF5eGVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk2MzA3OTEsImV4cCI6MjEwNTIwNjc5MX0.8mj8NkxpXXd8jCnRbXX3QlXzntFZgbENjIaycOsBMwU';
+
+      var form = document.getElementById('fbForm');
+      var overlay = document.getElementById('fbOverlay');
+      var fab = document.getElementById('fbFab');
+      var closeBtn = document.getElementById('fbClose');
+      var errorBox = document.getElementById('fbError');
+      var submitBtn = document.getElementById('fbSubmit');
+      var successView = document.getElementById('fbSuccess');
+      var againBtn = document.getElementById('fbAgain');
+      var nameEl = document.getElementById('fbName');
+      var relationEl = document.getElementById('fbRelation');
+      var deviceEl = document.getElementById('fbDevice');
+      var messageEl = document.getElementById('fbMessage');
+      var fbIsEn = false;
+
+      // 反馈模块自己的语言切换（data-fb-zh / data-fb-en / data-fb-ph-*）
+      function applyFbLang(en) {
+        fbIsEn = en;
+        document.querySelectorAll('#fbOverlay [data-fb-zh]').forEach(function (el) {
+          el.innerHTML = en ? el.getAttribute('data-fb-en') : el.getAttribute('data-fb-zh');
+        });
+        document.querySelectorAll('#fbOverlay [data-fb-ph-zh]').forEach(function (el) {
+          el.placeholder = en ? el.getAttribute('data-fb-ph-en') : el.getAttribute('data-fb-ph-zh');
+        });
+      }
+      // 跟随正式页语言按钮（不新增自己的按钮）
+      if (typeof langToggle !== 'undefined' && langToggle) {
+        langToggle.addEventListener('click', function () { applyFbLang(!fbIsEn); });
+      }
+
+      // 打开 / 关闭
+      function openFb() {
+        errorBox.classList.remove('show');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        messageEl.focus();
+      }
+      function closeFb() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      fab.addEventListener('click', openFb);
+      closeBtn.addEventListener('click', closeFb);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeFb(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeFb(); });
+
+      // 防重复提交：提交中禁用按钮
+      function setSubmitting(submitting) {
+        submitBtn.disabled = submitting;
+        submitBtn.style.opacity = submitting ? '.6' : '';
+      }
+
+      // 提交反馈到 Supabase
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var msg = messageEl.value.trim();
+        if (!msg) {
+          errorBox.textContent = fbIsEn ? 'Please write something before sending.' : '请先写点内容再发送～';
+          errorBox.classList.add('show');
+          messageEl.focus();
+          return;
+        }
+        if (!SUPABASE_URL.startsWith('http') || SUPABASE_ANON_KEY.startsWith('PASTE')) {
+          errorBox.textContent = fbIsEn ? 'Feedback is not configured yet. Please set the Supabase keys first.' : '反馈功能还没配置好，需要先在页面里填入 Supabase 的项目地址和密钥。';
+          errorBox.classList.add('show');
+          return;
+        }
+
+        errorBox.classList.remove('show');
+        setSubmitting(true);
+
+        // 动态加载 Supabase 客户端（延迟到用户第一次使用才加载，避免拖慢首屏）
+        function loadClient() {
+          return new Promise(function (resolve, reject) {
+            if (window.supabase) { resolve(window.supabase); return; }
+            var s = document.createElement('script');
+            s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+            s.onload = function () { resolve(window.supabase); };
+            s.onerror = function () { reject(new Error('load-fail')); };
+            document.head.appendChild(s);
+          });
+        }
+
+        loadClient().then(function (supabase) {
+          var client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+          var row = {
+            name: nameEl.value.trim() || '匿名',
+            relation: relationEl.value,
+            device: deviceEl.value,
+            message: msg,
+            version: 'v3.0.0'
+          };
+          return client.from('feedback').insert([row]);
+        }).then(function (res) {
+          if (res.error) throw res.error;
+          // 成功：显示成功视图
+          form.style.display = 'none';
+          successView.classList.add('show');
+        }).catch(function (err) {
+          // 失败：保留内容，提示重试
+          console.error('feedback submit failed:', err);
+          var permIssue = err && err.message && /42501|permission|row.?level|RLS|policy/i.test(err.message);
+          errorBox.textContent = fbIsEn
+            ? (permIssue
+                ? 'Database permission rejected this entry. The table or RLS policy may need checking.'
+                : 'Oops, something went wrong. Your text is still here — please try again.')
+            : (permIssue
+                ? '后台权限拒绝了这次提交，需要检查 feedback 表的 RLS 策略（记得不要直接关闭 RLS）。'
+                : '哎呀，发送失败了。你写的内容还在，请再试一次～');
+          errorBox.classList.add('show');
+          setSubmitting(false);
+        });
+      });
+
+      // 再写一条：回到表单
+      againBtn.addEventListener('click', function () {
+        successView.classList.remove('show');
+        form.style.display = '';
+        messageEl.value = '';
+        setSubmitting(false);
+        messageEl.focus();
+      });
+    })();
+  </script>
+
+  <script id="v2-splash-script">
+    // V2.0.0：载入页 -> 正式页 过渡
+    (function () {
+      var splash = document.getElementById('splash');
+      var enterBtn = document.getElementById('splash-enter');
+      if (!splash || !enterBtn) return;
+      // 载入页期间锁定滚动，禁止上下滑动
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+
+      // V2.0.1：载入页中英切换（仅切载入页文案，不改正式页任何代码）
+      var langBtn = document.getElementById('splash-lang');
+      var splashEn = false;
+      function applySplashLang(en) {
+        splashEn = en;
+        document.querySelectorAll('#splash [data-lang-zh]').forEach(function (el) {
+          el.textContent = en ? el.getAttribute('data-lang-en') : el.getAttribute('data-lang-zh');
+        });
+        splash.classList.toggle('en', en);
+        langBtn.textContent = en ? '中' : 'EN';
+        // 同步正式页已有语言按钮（触发其自带功能，不改动正式页代码）
+        var mainLang = document.getElementById('langToggle');
+        if (mainLang && mainLang.textContent !== langBtn.textContent) mainLang.click();
+      }
+      langBtn.addEventListener('click', function () { applySplashLang(!splashEn); });
+
+      enterBtn.addEventListener('click', function () {
+        splash.classList.add('leaving');
+        document.body.classList.add('splash-entered');
+        setTimeout(function () {
+          splash.style.display = 'none';
+          document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
+        }, 1000);
+      });
+    })();
+  </script>
+</body>
+</html>

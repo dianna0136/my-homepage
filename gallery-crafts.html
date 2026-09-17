@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>棉花娃娃 &amp; 拼豆 · 吴宇桐</title>
+<style>
+:root {
+  --paper: #fbf8f9;
+  --paper-2: #f4eef1;
+  --card: #ffffff;
+  --rose: #c4697e;
+  --rose-deep: #a85470;
+  --pink: #e4b6c2;
+  --pink-soft: #f7e8ec;
+  --blush: #faeef2;
+  --gray: #6a6368;
+  --gray-strong: #4a4348;
+  --gray-soft: #989097;
+  --serif: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --radius: 26px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--gray);
+  background:
+    radial-gradient(1050px 540px at 12% -4%, var(--blush) 0%, rgba(255,255,255,0) 62%),
+    radial-gradient(920px 470px at 96% 6%, #f2f6f5 0%, rgba(255,255,255,0) 58%),
+    var(--paper);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+/* 背景枝条（与主页同款） */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: 36px; width: 200px; height: 680px;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgNjgwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjY4MCIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTQwIDggQyA4NiAxMTgsIDUyIDI0OCwgOTYgMzUwIEMgMTI4IDQyOCwgMTAwIDUyOCwgMTUwIDY2MCIgc3Ryb2tlPSIjZDZjMWM5IiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik02MCAxNjAgQyAxMDQgMTU4LCAxMzIgMTMwLCAxNTggMTIyIiBzdHJva2U9IiNkNmMxYzkiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTcyIDI3MCBDIDExMiAyNTgsIDE0MCAyMjYsIDE2MCAyMTIiIHN0cm9rZT0iI2Q2YzFjOSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMTA0IDQxNiBDIDQ2IDQxNCwgMTQgMzgyLCA0IDM2MiIgc3Ryb2tlPSIjZDZjMWM5IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xMjAgNTIwIEMgMTc2IDUxMiwgMTQ2IDQ3OCwgMTc4IDQ1MiIgc3Ryb2tlPSIjYzliMGJhIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxnIGZpbGw9IiNlY2NhZDMiPjxlbGxpcHNlIGN4PSIxNjAiIGN5PSI5NiIgcng9IjExIiByeT0iMjciIHRyYW5zZm9ybT0icm90YXRlKDQ0IDE2MCA5NikiLz48ZWxsaXBzZSBjeD0iMTYwIiBjeT0iMjA0IiByeD0iMTEiIHJ5PSIyNyIgdHJhbnNmb3JtPSJyb3RhdGUoMzQgMTYwIDIwNCkiLz48ZWxsaXBzZSBjeD0iNDgiIGN5PSIzNTYiIHJ4PSIxMiIgcnk9IjI5IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjIgNDggMzU2KSIvPjxlbGxpcHNlIGN4PSIxMjAiIGN5PSI1MTIiIHJ4PSIxMSIgcnk9IjI3IiB0cmFuc2Zvcm09InJvdGF0ZSgxOCAxMjAgNTEyKSIvPjxlbGxpcHNlIGN4PSIxNTAiIGN5PSI2MDAiIHJ4PSIxMSIgcnk9IjI3IiB0cmFuc2Zvcm09InJvdGF0ZSgyNiAxNTAgNjAwKSIvPjwvZz48ZyBmaWxsPSIjZjRkYmUyIj48ZWxsaXBzZSBjeD0iMTc0IiBjeT0iODQiIHJ4PSIxMCIgcnk9IjI1IiB0cmFuc2Zvcm09InJvdGF0ZSg1OCAxNzQgODQpIi8+PGVsbGlwc2UgY3g9IjE3NiIgY3k9IjE5MiIgcng9IjEwIiByeT0iMjQiIHRyYW5zZm9ybT0icm90YXRlKDUyIDE3NiAxOTIpIi8+PGVsbGlwc2UgY3g9IjYwIiBjeT0iMzc0IiByeD0iMTAiIHJ5PSIyNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ2IDYwIDM3NCkiLz48ZWxsaXBzZSBjeD0iMTUwIiBjeT0iNTAwIiByeD0iMTAiIHJ5PSIyNCIgdHJhbnNmb3JtPSJyb3RhdGUoMzggMTUwIDUwMCkiLz48L2c+PGcgZmlsbD0iI2ZmZiI+PGNpcmNsZSBjeD0iMTc4IiBjeT0iMTMyIiByPSI3Ii8+PGNpcmNsZSBjeD0iMTg4IiBjeT0iMTIxIiByPSI5Ii8+PGNpcmNsZSBjeD0iMTg0IiBjeT0iMTQ2IiByPSI2Ii8+PGNpcmNsZSBjeD0iMTIiIGN5PSIzNDAiIHI9IjYiLz48Y2lyY2xlIGN4PSIxNzYiIGN5PSI0NjgiIHI9IjciLz48Y2lyY2xlIGN4PSIxNjYiIGN5PSI0NzgiIHI9IjYiLz48L2c+PGcgZmlsbD0iI2VlZDNkYSI+PGNpcmNsZSBjeD0iMTgyIiBjeT0iMTMyIiByPSIxMSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMzQyIiByPSI4Ii8+PGNpcmNsZSBjeD0iMTc4IiBjeT0iNDcwIiByPSI5Ii8+PC9nPjwvc3ZnPg==') no-repeat left top / auto 100%;
+  opacity: .55; pointer-events: none; z-index: 0;
+}
+body::before { left: 0; }
+body::after { right: 0; transform: scaleX(-1); top: auto; bottom: 36px; }
+
+/* 漂浮小装饰层：小花/星星/云朵/蝴蝶结 缓慢游动 */
+.drift {
+  position: fixed; z-index: 0; pointer-events: none;
+  font-size: var(--sz); opacity: var(--op);
+  animation: driftA var(--t) ease-in-out var(--d) infinite alternate;
+  filter: drop-shadow(0 2px 3px rgba(196,105,126,.12));
+}
+@keyframes driftA { from { transform: translateY(0) rotate(0deg); } to { transform: translateY(-26px) rotate(10deg); } }
+@keyframes driftB { from { transform: translateY(0) rotate(0deg); } to { transform: translateY(18px) rotate(-12deg); } }
+
+.wrap { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 0 24px 64px; }
+
+/* 顶部条 */
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 0 6px; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--rose); text-decoration: none; font-weight: 600; font-size: 14.5px;
+  padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,.75);
+  box-shadow: 0 6px 16px rgba(176,116,138,.12); transition: transform .18s, box-shadow .18s;
+}
+.back-link:hover { transform: translateX(-3px) translateY(-1px); box-shadow: 0 10px 20px rgba(176,116,138,.18); color: var(--rose-deep); }
+.lang-btn {
+  border: none; cursor: pointer; font-family: var(--serif); font-size: 14px; font-weight: 700;
+  color: var(--rose-deep); background: rgba(255,255,255,.75);
+  padding: 9px 18px; border-radius: 999px; box-shadow: 0 6px 16px rgba(176,116,138,.12);
+  transition: transform .18s, box-shadow .18s;
+}
+.lang-btn:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 10px 20px rgba(176,116,138,.2); }
+
+/* Hero */
+.hero { text-align: center; padding: 38px 0 30px; }
+.eyebrow {
+  display: inline-block; color: var(--rose); font-size: 12px; font-weight: 700;
+  letter-spacing: 4px; text-transform: uppercase;
+  background: rgba(255,255,255,.7); padding: 6px 16px; border-radius: 999px;
+  box-shadow: inset 0 0 0 1.5px dashed var(--pink);
+}
+.hero h1 {
+  font-family: var(--serif); font-weight: 600; color: var(--gray-strong);
+  font-size: 44px; margin: 14px 0 10px; letter-spacing: 1px;
+}
+.hero h1 em { font-style: italic; color: var(--rose-deep); position: relative; }
+.hero h1 .heart { font-style: normal; font-size: 34px; }
+.hero p { color: var(--gray-soft); font-size: 15.5px; max-width: 580px; margin: 0 auto; }
+
+/* 板块 */
+section.gallery { margin-top: 34px; }
+.gallery-head { text-align: center; margin-bottom: 24px; position: relative; }
+.gallery-head .badge {
+  display: inline-block; font-size: 22px; background: #fff; border-radius: 50%;
+  width: 52px; height: 52px; line-height: 52px; box-shadow: 0 8px 18px rgba(176,116,138,.16);
+  margin-bottom: 8px; animation: bob 3s ease-in-out infinite;
+}
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.gallery-head h2 { font-family: var(--serif); font-weight: 600; font-size: 29px; color: var(--gray-strong); }
+.gallery-head p { color: var(--gray-soft); font-size: 14.5px; margin-top: 2px; }
+
+/* 图片网格：拍立得风黏土相框 */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.photo-card {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 12px 12px 8px;
+  box-shadow: 0 14px 26px rgba(176,116,138,.12), inset 0 2px 6px rgba(255,255,255,.9);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.photo-card:hover { transform: translateY(-7px) rotate(.8deg); box-shadow: 0 22px 36px rgba(176,116,138,.2); }
+.photo-frame {
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #fdf6f8, #f6edf1);
+  position: relative;
+  border: 3px solid #fff;
+  box-shadow: inset 0 0 0 1.5px var(--pink-soft), 0 4px 10px rgba(196,105,126,.08);
+}
+.photo-frame img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .35s ease;
+}
+.photo-card:hover .photo-frame img { transform: scale(1.05); }
+
+/* 一对组合相框：两张大头照并排，中间爱心 */
+.pair-frame { display: flex; align-items: center; gap: 0; background: var(--blush); }
+.pair-frame .pair-half { flex: 1; height: 100%; min-width: 0; }
+.pair-frame .pair-half img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pair-frame .pair-half:first-child img { border-radius: 17px 0 0 17px; }
+.pair-frame .pair-half:last-child img { border-radius: 0 17px 17px 0; }
+.pair-heart {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  background: #fff; border-radius: 50%; width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px; box-shadow: 0 4px 12px rgba(196,105,126,.3);
+  z-index: 2; animation: beat 1.6s ease-in-out infinite;
+}
+@keyframes beat { 0%,100% { transform: translate(-50%,-50%) scale(1); } 50% { transform: translate(-50%,-50%) scale(1.15); } }
+
+/* Footer */
+footer { text-align: center; margin-top: 58px; color: var(--gray-soft); font-size: 13px; }
+footer a { color: var(--rose); text-decoration: none; font-weight: 600; }
+footer .tiny-hearts { letter-spacing: 4px; color: var(--pink); margin-bottom: 4px; }
+
+body.lang-en .hero h1 em { color: var(--rose-deep); }
+
+@media (max-width: 820px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 33px; }
+}
+@media (max-width: 520px) {
+  .grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 29px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 漂浮装饰 -->
+<span class="drift" style="--sz:34px; --op:.35; --t:15s; --d:0s;   left:7%;  top:16%; animation-name:driftA;">✿</span>
+<span class="drift" style="--sz:24px; --op:.4;  --t:20s; --d:-3s;  left:88%; top:10%; animation-name:driftB;">✦</span>
+<span class="drift" style="--sz:30px; --op:.3;  --t:17s; --d:-6s;  left:12%; top:42%; animation-name:driftB;">☁️</span>
+<span class="drift" style="--sz:22px; --op:.42; --t:22s; --d:-9s;  left:90%; top:38%; animation-name:driftA;">🎀</span>
+<span class="drift" style="--sz:26px; --op:.32; --t:18s; --d:-2s;  left:5%;  top:68%; animation-name:driftA;">✿</span>
+<span class="drift" style="--sz:28px; --op:.38; --t:21s; --d:-11s; left:93%; top:66%; animation-name:driftB;">✦</span>
+<span class="drift" style="--sz:22px; --op:.3;  --t:16s; --d:-7s;  left:10%; top:86%; animation-name:driftB;">🎀</span>
+<span class="drift" style="--sz:26px; --op:.35; --t:19s; --d:-4s;  left:86%; top:88%; animation-name:driftA;">✿</span>
+
+<div class="wrap">
+  <div class="topbar">
+    <a class="back-link" href="index.html" data-zh="← 返回主页" data-en="← Back to Homepage">← 返回主页</a>
+    <button class="lang-btn" id="langBtn">EN / 中</button>
+  </div>
+
+  <header class="hero">
+    <span class="eyebrow" data-zh="我的小爱好" data-en="Hobbies &amp; Crafts">我的小爱好</span>
+    <h1 data-zh="棉花娃娃 <span class="heart">💖</span> <em>拼豆</em>" data-en="Cotton Dolls <span class="heart">💖</span> <em>Perler Beads</em>">棉花娃娃 <span class="heart">💖</span> <em>拼豆</em></h1>
+    <p data-zh="这是我周末最爱的两件事：给棉花娃娃买好看的衣服，还有一颗一颗拼出可爱的小图案 ✨"
+       data-en="My two favourite weekend hobbies: dressing up cotton dolls and making cute perler bead art, one bead at a time. Every photo is a happy memory ✨">
+      这是我周末最爱的两件事：给棉花娃娃买好看的衣服，还有一颗一颗拼出可爱的小图案 ✨</p>
+  </header>
+
+  <section class="gallery" id="cotton">
+    <div class="gallery-head">
+      <div class="badge">🧸</div>
+      <h2 data-zh="棉花娃娃" data-en="Cotton Dolls">棉花娃娃</h2>
+      <p data-zh="我的娃娃们和它们的漂亮衣服" data-en="My dolls and their pretty outfits">我的娃娃们和它们的漂亮衣服</p>
+    </div>
+    <div class="grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/doll-uniform-room.jpg" alt="校服双娃室内合影" loading="lazy" /></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/doll-uniform-lights.jpg" alt="校服双娃灯会夜景" loading="lazy" /></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame pair-frame">
+          <div class="pair-half"><img src="gallery-images/doll-pair-a.jpg" alt="大头照其一" loading="lazy" /></div>
+          <div class="pair-heart">💖</div>
+          <div class="pair-half"><img src="gallery-images/doll-pair-b.jpg" alt="大头照其二" loading="lazy" /></div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/doll-collection.jpg" alt="娃娃收纳柜" loading="lazy" /></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/doll-princess.jpg" alt="穿粉裙的娃娃" loading="lazy" /></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/doll-scrapbook.jpg" alt="玩偶手账拼贴" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="beads">
+    <div class="gallery-head">
+      <div class="badge">🧩</div>
+      <h2 data-zh="拼豆" data-en="Perler Beads">拼豆</h2>
+      <p data-zh="一颗一颗拼出来的小可爱" data-en="Little cuties made bead by bead">一颗一颗拼出来的小可爱</p>
+    </div>
+    <div class="grid">
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/beads-sweet-notes.jpg" alt="Sweet Notes 拼豆合集" loading="lazy" /></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/beads-desk.jpg" alt="桌面拼豆小合集" loading="lazy" /></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/beads-melody.jpg" alt="粉色拼豆挂件一对" loading="lazy" /></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/beads-cloud-cat.jpg" alt="云朵和小猫拼豆" loading="lazy" /></div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-frame"><img src="gallery-images/beads-food-char.jpg" alt="饭团和戴帽角色拼豆" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="tiny-hearts">♡ ♡ ♡</div>
+    <p data-zh="© <span id="year">2026</span> 吴宇桐 · <a href="index.html">返回主页</a>" data-en="© <span id="year">2026</span> Wu Yutong · <a href="index.html">Back to Home</a>">© <span id="year">2026</span> 吴宇桐 · <a href="index.html">返回主页</a></p>
+  </footer>
+</div>
+
+<script>
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  var btn = document.getElementById('langBtn');
+  var isEn = false;
+  function apply(en) {
+    document.querySelectorAll('[data-zh]').forEach(function (el) {
+      if (el.hasAttribute('data-en')) el.innerHTML = en ? el.getAttribute('data-en') : el.getAttribute('data-zh');
+    });
+    document.body.classList.toggle('lang-en', en);
+    isEn = en;
+  }
+  btn.addEventListener('click', function () { apply(!isEn); });
+</script>
+</body>
+</html>
