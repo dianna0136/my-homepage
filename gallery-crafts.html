@@ -76,7 +76,7 @@ body::after { right: 0; transform: scaleX(-1); top: auto; bottom: 36px; }
 .lang-btn:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 10px 20px rgba(176,116,138,.2); }
 
 /* Hero */
-.hero { text-align: center; padding: 38px 0 30px; }
+.hero { text-align: center; padding: 44px 0 34px; }
 .eyebrow {
   display: inline-block; color: var(--rose); font-size: 12px; font-weight: 700;
   letter-spacing: 4px; text-transform: uppercase;
@@ -85,15 +85,12 @@ body::after { right: 0; transform: scaleX(-1); top: auto; bottom: 36px; }
 }
 .hero h1 {
   font-family: var(--serif); font-weight: 600; color: var(--gray-strong);
-  font-size: 44px; margin: 14px 0 10px; letter-spacing: 1px;
+  font-size: 44px; margin: 16px 0 2px; letter-spacing: 1px;
 }
-.hero h1 em { font-style: italic; color: var(--rose-deep); position: relative; }
-.hero h1 .heart { font-style: normal; font-size: 34px; }
-.hero p { color: var(--gray-soft); font-size: 15.5px; max-width: 580px; margin: 0 auto; }
 
 /* 板块 */
-section.gallery { margin-top: 34px; }
-.gallery-head { text-align: center; margin-bottom: 24px; position: relative; }
+section.gallery { margin-top: 42px; }
+.gallery-head { text-align: center; margin-bottom: 26px; position: relative; }
 .gallery-head .badge {
   display: inline-block; font-size: 22px; background: #fff; border-radius: 50%;
   width: 52px; height: 52px; line-height: 52px; box-shadow: 0 8px 18px rgba(176,116,138,.16);
@@ -104,7 +101,7 @@ section.gallery { margin-top: 34px; }
 .gallery-head p { color: var(--gray-soft); font-size: 14.5px; margin-top: 2px; }
 
 /* 图片网格：拍立得风黏土相框 */
-.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .photo-card {
   background: #ffffff;
   border-radius: var(--radius);
@@ -144,11 +141,9 @@ section.gallery { margin-top: 34px; }
 @keyframes beat { 0%,100% { transform: translate(-50%,-50%) scale(1); } 50% { transform: translate(-50%,-50%) scale(1.15); } }
 
 /* Footer */
-footer { text-align: center; margin-top: 58px; color: var(--gray-soft); font-size: 13px; }
+footer { text-align: center; margin-top: 64px; color: var(--gray-soft); font-size: 13px; }
 footer a { color: var(--rose); text-decoration: none; font-weight: 600; }
 footer .tiny-hearts { letter-spacing: 4px; color: var(--pink); margin-bottom: 4px; }
-
-body.lang-en .hero h1 em { color: var(--rose-deep); }
 
 @media (max-width: 820px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
@@ -180,10 +175,7 @@ body.lang-en .hero h1 em { color: var(--rose-deep); }
 
   <header class="hero">
     <span class="eyebrow" data-zh="我的小爱好" data-en="Hobbies &amp; Crafts">我的小爱好</span>
-    <h1 data-zh="棉花娃娃 <span class="heart">💖</span> <em>拼豆</em>" data-en="Cotton Dolls <span class="heart">💖</span> <em>Perler Beads</em>">棉花娃娃 <span class="heart">💖</span> <em>拼豆</em></h1>
-    <p data-zh="这是我周末最爱的两件事：给棉花娃娃买好看的衣服，还有一颗一颗拼出可爱的小图案 ✨"
-       data-en="My two favourite weekend hobbies: dressing up cotton dolls and making cute perler bead art, one bead at a time. Every photo is a happy memory ✨">
-      这是我周末最爱的两件事：给棉花娃娃买好看的衣服，还有一颗一颗拼出可爱的小图案 ✨</p>
+    <h1 data-zh="我的棉花娃娃与拼豆作品" data-en="My Cotton Dolls &amp; Perler Beads">我的棉花娃娃与拼豆作品</h1>
   </header>
 
   <section class="gallery" id="cotton">
