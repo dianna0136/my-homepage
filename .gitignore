@@ -22,4 +22,10 @@
 !cursor-cat-btn.png
 !splash-cloud.png
 !splash-star.png
+
+# 音乐模块：封面与音源
+!music-covers/
+!music-covers/*.jpg
+!music/
+!music/*.mp3
 !\.gitignore
