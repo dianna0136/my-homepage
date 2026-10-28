@@ -215,7 +215,7 @@
     .about-grid { grid-template-columns: repeat(2, 1fr); }
 
     /* ---------- Works ---------- */
-    .work-grid { grid-template-columns: repeat(3, 1fr); }
+    .work-grid { grid-template-columns: repeat(4, 1fr); }   /* V3.3.0：项目卡由 3 张增至 4 张，桌面 4 列一行排满；820px 两列 / 620px 一列断点不变 */
 
     /* ---------- V2.2.0 Claymorphism 黏土拟态卡片版：项目3+技能2 共5张卡片（参考 namethatui.com/styles/claymorphism）——26px 大圆角 + 三阴影配方（外投影浮起/上亮下暗内阴影）；暖色马卡龙独立配色（珊瑚粉/头像同款浅蓝/桃粉红/奶油杏/粉莓）；缩略图内凹白凹槽；珊瑚胶囊按钮悬停按扁；技能气泡白底立体（作用域收窄 .skill-card .chip）；「关于我」等其余板块与 V2.1.1 完全一致；data-zh 69 零改动 ---------- */
     /* V2.2.1：项目与作品「个人主页 V1」卡片（work-grid nth-child(1)）珊瑚粉 #ffb8a3 → 更浅 #ffd4c4，阴影同步调淡 rgba(205,150,130)；其余卡片与所有模块零改动；data-zh 69 零改动 */
@@ -242,6 +242,8 @@
     .work-grid .work-card:nth-child(1) { background: #ffd4c4; box-shadow: 0 20px 36px rgba(205,150,130,.2), inset 0 -8px 14px rgba(205,150,130,.18), inset 0 6px 12px rgba(255,255,255,.75); }
     .work-grid .work-card:nth-child(2) { background: #a9d6f2; box-shadow: 0 20px 36px rgba(100,150,185,.25), inset 0 -8px 14px rgba(100,150,185,.2), inset 0 6px 12px rgba(255,255,255,.8); }
     .work-grid .work-card:nth-child(3) { background: #ff9fb2; box-shadow: 0 20px 36px rgba(205,95,125,.2), inset 0 -8px 14px rgba(205,95,125,.18), inset 0 6px 12px rgba(255,255,255,.75); }
+    /* V3.3.0：第 4 张卡（香港化 RPG）淡紫配色，阴影随底色 */
+    .work-grid .work-card:nth-child(4) { background: #dcc9f0; box-shadow: 0 20px 36px rgba(150,110,180,.22), inset 0 -8px 14px rgba(150,110,180,.2), inset 0 6px 12px rgba(255,255,255,.78); }
     .skill-grid .skill-card:nth-child(1) { background: #ffe1a8; box-shadow: 0 20px 36px rgba(205,155,70,.2), inset 0 -8px 14px rgba(205,155,70,.18), inset 0 6px 12px rgba(255,255,255,.75); }
     .skill-grid .skill-card:nth-child(2) { background: #ffb0c4; box-shadow: 0 20px 36px rgba(200,95,125,.2), inset 0 -8px 14px rgba(200,95,125,.18), inset 0 6px 12px rgba(255,255,255,.75); }
     .work-card:hover, .skill-card:hover { box-shadow: 0 24px 42px rgba(150,110,150,.24), inset 0 -8px 14px rgba(150,110,150,.18), inset 0 6px 12px rgba(255,255,255,.75); }
@@ -1063,6 +1065,13 @@
           <div class="card-title" data-zh="棉花娃娃 &amp; 拼豆" data-en="Cotton Dolls &amp; Perler Beads">棉花娃娃 &amp; 拼豆</div>
           <p class="card-desc" data-zh="点进去看可爱的大头照！" data-en="Tap to see cute close-up photos!">点进去看可爱的大头照！</p>
           <a class="work-link" href="gallery-crafts.html" target="_blank" rel="noopener" data-zh="查看作品 →" data-en="View gallery →">查看作品 →</a>
+        </div>
+        <!-- V3.3.0：新增第 4 张真实作品卡「香港化 RPG」，链接用户已发布的 GitHub Pages 小游戏 -->
+        <div class="work-card">
+          <div class="thumb"><img class="thumb-img" src="hk-rpg-thumb.png" alt="香港化 RPG 游戏封面"></div>
+          <div class="card-title" data-zh="香港化 RPG" data-en="Hong Kongified">香港化 RPG</div>
+          <p class="card-desc" data-zh="一觉醒来，全世界都在讲粤语——我做的粤语 RPG 小游戏，有地鐵站地图、回合战斗和章节存档 🎮" data-en="Wake up to a world that speaks Cantonese — my Cantonese RPG with a metro map, battles and chapter saves 🎮">一觉醒来，全世界都在讲粤语——我做的粤语 RPG 小游戏，有地鐵站地图、回合战斗和章节存档 🎮</p>
+          <a class="work-link" href="https://dianna0136.github.io/hk-rpg/" target="_blank" rel="noopener" data-zh="在线试玩 →" data-en="Play it online →">在线试玩 →</a>
         </div>
       </div>
       <div class="placeholder-note" data-zh="💡 卡片内容均来自真实作品；更多照片与在线链接会在后续版本补充，避免放置虚假信息。" data-en="💡 All cards show real work; more photos and online links will be added in later versions, so nothing shown here is false.">💡 卡片内容均来自真实作品；更多照片与在线链接会在后续版本补充，避免放置虚假信息。</div>
