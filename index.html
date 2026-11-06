@@ -315,6 +315,343 @@
     }
     .think-q b { color: var(--rose-deep); }
 
+    /* ---------- Digital twin: Thread 风格私信入口 (V3.5.0) ---------- */
+    .dm-shell {
+      max-width: 560px; margin: 0 auto; background: #fff;
+      border-radius: 26px; padding: 4px 6px 8px;
+      box-shadow: 0 20px 40px rgba(176,116,138,.16),
+                  0 3px 8px rgba(176,116,138,.08),
+                  inset 0 1px 0 rgba(255,255,255,.9);
+    }
+    .dm-top { display: flex; align-items: center; gap: 8px; padding: 16px 18px 8px; }
+    .dm-top-t { font-size: 15px; font-weight: 800; color: var(--gray-strong); letter-spacing: .3px; }
+    .dm-top-n {
+      min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px;
+      background: var(--rose); color: #fff; font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dm-row {
+      display: flex; align-items: center; gap: 14px; width: 100%;
+      padding: 13px 16px; border: none; border-radius: 18px; background: transparent;
+      text-align: left; font-family: var(--sans); cursor: pointer;
+      transition: background .18s ease;
+    }
+    .dm-row:hover { background: #fdf2f6; }
+    .dm-row:active { background: #fbe8ee; }
+    .dm-ava {
+      width: 52px; height: 52px; border-radius: 50%; flex: none; overflow: hidden;
+      background: linear-gradient(135deg, var(--pink), var(--rose));
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 14px rgba(196,105,126,.26);
+    }
+    .dm-ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .dm-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+    .dm-l1 { display: flex; align-items: baseline; gap: 8px; }
+    .dm-name { font-size: 15px; font-weight: 700; color: var(--gray-strong); }
+    .dm-time { margin-left: auto; font-size: 12px; color: var(--gray-soft); flex: none; }
+    .dm-l2 {
+      font-size: 13px; color: var(--gray);
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .dm-unread { width: 8px; height: 8px; border-radius: 50%; background: var(--rose); flex: none; }
+    .dm-foot { padding: 2px 18px 8px; font-size: 12px; color: var(--gray-soft); text-align: center; }
+
+    /* ---------- 像素风聊天室 (V3.5.0) ---------- */
+    body.cr-lock { overflow: hidden; }
+    .cr-overlay {
+      position: fixed; inset: 0; z-index: 9000; display: none;
+      align-items: center; justify-content: center; padding: 18px;
+      background: rgba(226,232,238,.9);
+      -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+    }
+    .cr-overlay.open { display: flex; }
+
+    .cr-win {
+      position: relative;
+      width: min(660px, 100%); max-width: 100%; min-width: 0;
+      height: min(86vh, 800px); max-height: 90vh;
+      display: flex; flex-direction: column;
+      background: #f4a8c4; border: 3px solid #b83a63; border-radius: 4px;
+      box-shadow: 0 0 0 3px #f9c9dd, 0 0 0 5px #d4547f, 0 0 0 7px #f9c9dd,
+                  0 0 0 9px #b83a63, 0 22px 50px rgba(120,60,80,.32);
+      font-family: "SF Mono", "Menlo", "Consolas", "Courier New", monospace;
+      animation: crPop .2s ease-out;
+    }
+    @keyframes crPop { from { transform: translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+    /* 标题栏 */
+    .cr-titlebar {
+      display: flex; align-items: center; gap: 12px;
+      margin: 4px 4px 0; padding: 10px 12px;
+      background: #d4547f; border: 2px solid #a8325c; border-radius: 2px;
+      box-shadow: inset 0 2px 0 rgba(255,255,255,.28);
+    }
+    .cr-smile { width: 34px; height: 34px; flex: none; display: block; }
+    .cr-title {
+      font-size: 22px; font-weight: 700; letter-spacing: 4px; color: #fff;
+      text-shadow: 2px 2px 0 #a8325c;
+    }
+    .cr-btns { margin-left: auto; display: flex; gap: 8px; }
+    .cr-btn {
+      width: 34px; height: 30px; border: 2px solid #a8325c; border-radius: 2px;
+      background: #f4a8c4; color: #a8325c; font-family: inherit; font-size: 17px;
+      font-weight: 700; line-height: 1; cursor: pointer;
+      box-shadow: inset 0 2px 0 rgba(255,255,255,.5), 2px 2px 0 rgba(168,50,92,.35);
+      transition: background .12s ease;
+    }
+    .cr-btn:hover { background: #ffc2d8; }
+    .cr-btn:active { transform: translate(1px,1px); box-shadow: inset 0 2px 0 rgba(255,255,255,.4); }
+
+    /* 菜单栏 / 工具栏共用：浅粉底 + 白色内框 */
+    .cr-menubar, .cr-toolbar {
+      margin: 6px 4px 0; padding: 4px;
+      background: #f4a8c4; border: 2px solid #b83a63; border-radius: 2px;
+    }
+    .cr-panel {
+      display: flex; align-items: center; gap: 26px;
+      background: #fff; border: 2px solid #e8b9cc; border-radius: 2px;
+      padding: 8px 16px;
+    }
+    .cr-menubar .cr-panel { font-size: 16px; letter-spacing: 1px; color: #8a3a58; }
+    .cr-menubar .cr-panel span { opacity: .92; }
+
+    /* 聊天内容区：奶油底 + 白色内框 */
+    .cr-screen {
+      flex: 1; min-height: 0; display: flex; flex-direction: column;
+      margin: 6px 4px 0; padding: 4px;
+      background: #f4a8c4; border: 2px solid #b83a63; border-radius: 2px;
+      overflow: hidden;
+    }
+    .cr-screen-in {
+      flex: 1; min-height: 0; display: flex; flex-direction: column;
+      background: #fff6ec; border: 2px solid #e8b9cc; border-radius: 2px; overflow: hidden;
+    }
+    .cr-suggest {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      padding: 12px 16px 10px; background: #fff6ec;
+      border-bottom: 2px dashed #eccfb9;
+    }
+    .cr-chip {
+      font-family: inherit; font-size: 12px; padding: 6px 11px;
+      border: 2px solid #d4547f; border-radius: 2px; background: #fff;
+      color: #8a3a58; cursor: pointer;
+      box-shadow: 2px 2px 0 rgba(212,84,127,.18);
+      transition: background .12s ease;
+    }
+    .cr-chip:hover { background: #ffe9f1; }
+    .cr-chip:active { transform: translate(1px,1px); box-shadow: none; }
+
+    .cr-log {
+      flex: 1; min-height: 0; overflow-y: auto;
+      padding: 18px 20px 14px; display: flex; flex-direction: column; gap: 14px;
+      scroll-behavior: smooth; overscroll-behavior: contain;
+    }
+    .cr-log::-webkit-scrollbar { width: 8px; }
+    .cr-log::-webkit-scrollbar-thumb { background: #e8b9cc; border-radius: 2px; }
+
+    .cr-log .twin-msg { display: flex; }
+    .cr-log .twin-msg.user { justify-content: flex-end; }
+    .cr-log .twin-msg .bubble {
+      max-width: 82%; padding: 10px 14px; border-radius: 2px;
+      font-size: 14px; line-height: 1.9; white-space: pre-wrap; word-break: break-word;
+      border: 2px solid #b83a63; background: #fff; color: #6b3a4a;
+      box-shadow: 3px 3px 0 rgba(184,58,99,.16);
+    }
+    .cr-log .twin-msg.user .bubble {
+      background: #d4547f; color: #fff; border-color: #a8325c;
+      box-shadow: 3px 3px 0 rgba(168,50,92,.22);
+    }
+    .cr-log .twin-msg.error .bubble {
+      background: #fff0f4; color: #a8325a; border-color: #e88aa8;
+    }
+    .cr-log .twin-typing { display: flex; gap: 5px; padding: 12px 14px; }
+    .cr-log .twin-typing i {
+      width: 6px; height: 6px; background: #b83a63; border-radius: 0;
+      animation: twinBlink 1.1s infinite ease-in-out;
+    }
+    .cr-log .twin-typing i:nth-child(2) { animation-delay: .16s; }
+    .cr-log .twin-typing i:nth-child(3) { animation-delay: .32s; }
+
+    /* 工具栏图标 */
+    .cr-toolbar .cr-panel { gap: 22px; padding: 8px 16px; }
+    .cr-tool { display: inline-flex; align-items: center; line-height: 1; user-select: none; }
+    .cr-tool svg { width: 26px; height: 26px; display: block; }
+    .cr-credit { margin-left: auto; font-size: 12px; color: #a86b82; letter-spacing: .5px; }
+
+    /* 底部输入区 */
+    .cr-inputbar {
+      display: flex; align-items: center; gap: 10px;
+      margin: 6px 4px 4px; padding: 10px 12px;
+      background: #f4a8c4; border: 2px solid #b83a63; border-radius: 2px;
+    }
+    .cr-elephant { width: 44px; height: 44px; flex: none; display: block; }
+    .cr-send {
+      width: 32px; height: 36px; flex: none; border: none; background: transparent;
+      color: #a8325c; font-size: 18px; cursor: pointer; padding: 0;
+      transition: transform .12s ease, color .12s ease;
+    }
+    .cr-send:hover { color: #d4547f; transform: translateX(2px); }
+    .cr-send:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+    .cr-input {
+      flex: 1; min-width: 0; font-family: inherit; font-size: 15px;
+      padding: 10px 14px; border: 3px solid #b83a63; border-radius: 2px;
+      background: #fff; color: #6b3a4a; outline: none; cursor: text !important;
+      box-shadow: inset 2px 2px 0 rgba(184,58,99,.1), 2px 2px 0 rgba(184,58,99,.18);
+    }
+    .cr-input::placeholder { color: #c98ba4; }
+    .cr-input:focus { box-shadow: inset 2px 2px 0 rgba(184,58,99,.1), 0 0 0 3px rgba(212,84,127,.22); }
+
+    /* 工具按钮可点击 (V3.5.0) */
+    button.cr-tool {
+      border: none; background: transparent; padding: 2px; cursor: pointer;
+      border-radius: 2px; transition: transform .12s ease, background .12s ease;
+    }
+    button.cr-tool:hover { background: #ffe9f1; transform: translateY(-2px); }
+    button.cr-tool:active { transform: translateY(0); }
+    button.cr-tool.on { background: #ffd9e7; }
+
+    /* 聊天文字自定义（A 面板） */
+    .cr-log .twin-msg .bubble {
+      font-family: var(--chat-font, inherit);
+      font-weight: var(--chat-weight, 400);
+      font-size: var(--chat-size, 14px);
+    }
+    .cr-log .twin-msg.bot .bubble { color: var(--chat-color, #6b3a4a); }
+    .cr-input { font-family: var(--chat-font, inherit); }
+
+    /* 表情消息 */
+    .cr-log .bubble.sticker { font-size: 30px; line-height: 1.1; padding: 6px 12px; }
+
+    /* 图片消息 */
+    .cr-log .bubble.img-bubble { padding: 6px; background: #fff; }
+    .cr-log .bubble.img-bubble img {
+      display: block; max-width: 230px; max-height: 260px;
+      border-radius: 2px; border: 1px solid #e8b9cc;
+    }
+
+    /* 字体设置面板 */
+    .cr-fontpanel {
+      margin: 6px 4px 0; padding: 4px;
+      background: #f4a8c4; border: 2px solid #b83a63; border-radius: 2px;
+    }
+    .cr-fontpanel .cr-panel { flex-wrap: wrap; gap: 10px 22px; padding: 10px 14px; }
+    .fp-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .fp-label { font-size: 12px; color: #a86b82; }
+    .fp-btn {
+      font-family: inherit; font-size: 12px; padding: 4px 10px;
+      border: 2px solid #d4547f; border-radius: 2px; background: #fff; color: #8a3a58;
+      cursor: pointer; transition: background .12s ease;
+    }
+    .fp-btn:hover { background: #ffe9f1; }
+    .fp-btn.on { background: #d4547f; color: #fff; }
+    .fp-bold { font-weight: 900; }
+    .fp-sizeval { min-width: 22px; text-align: center; font-size: 13px; color: #8a3a58; }
+    .fp-color {
+      width: 20px; height: 20px; border-radius: 2px; border: 2px solid #b83a63;
+      background: var(--c); cursor: pointer; padding: 0;
+    }
+    .fp-color.on { outline: 2px solid #8a3a58; outline-offset: 1px; }
+    .fp-reset { margin-left: auto; }
+
+    /* 菜单栏按钮 / 提示条 / 帮助面板 (V3.5.0) */
+    .cr-menubar .cr-menu { gap: 6px; padding: 4px 10px; }
+    .cr-menu-item {
+      font-family: inherit; font-size: 15px; letter-spacing: 1px; font-weight: 400;
+      color: #8a3a58; background: transparent;
+      border: 2px solid transparent; border-radius: 2px;
+      padding: 4px 10px; min-height: 32px; cursor: pointer;
+      transition: background-color .12s ease, border-color .12s ease, color .12s ease;
+    }
+    .cr-menu-item:hover { background: #ffe9f1; border-color: #e8b9cc; }
+    .cr-menu-item:active { transform: translateY(1px); }
+    .cr-menu-item:focus-visible { outline: 2px solid #b83a63; outline-offset: 2px; }
+
+    .cr-toast {
+      position: absolute; left: 50%; bottom: 132px; z-index: 6;
+      max-width: 88%; padding: 9px 16px;
+      background: #8a3a58; color: #fff;
+      border: 2px solid #6d2943; border-radius: 2px;
+      font-size: 13px; letter-spacing: .5px; white-space: nowrap;
+      box-shadow: 3px 3px 0 rgba(120,60,80,.28);
+      opacity: 0; transform: translate(-50%, 8px); pointer-events: none;
+      transition: opacity .18s ease-out, transform .18s ease-out;
+    }
+    .cr-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    .cr-help {
+      position: absolute; inset: 0; z-index: 8; display: none;
+      align-items: center; justify-content: center; padding: 20px;
+      background: rgba(138,58,88,.45);
+    }
+    .cr-help.open { display: flex; }
+    .cr-help-win {
+      width: 100%; max-height: 100%;
+      display: flex; flex-direction: column;
+      background: #fff6ec; border: 2px solid #e8b9cc; border-radius: 2px; overflow: hidden;
+      box-shadow: 4px 4px 0 rgba(120,60,80,.28);
+      animation: crHelpIn .18s ease-out;
+    }
+    @keyframes crHelpIn { from { transform: translateY(8px); } to { transform: none; } }
+    .cr-help-bar {
+      display: flex; align-items: center; gap: 10px; flex: none;
+      padding: 8px 10px; background: #d4547f; border-bottom: 2px solid #a8325c;
+    }
+    .cr-help-title { font-size: 14px; font-weight: 700; letter-spacing: 1px; color: #fff; text-shadow: 1px 1px 0 #a8325c; }
+    .cr-help-close { margin-left: auto; width: 30px; height: 26px; }
+    .cr-help-close:focus-visible,
+    .cr-btn:focus-visible { outline: 2px solid #fff6ec; outline-offset: 2px; }
+    .cr-help-body {
+      flex: 1; min-height: 0; overflow-y: auto;
+      padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 12px;
+    }
+    .cr-help-body::-webkit-scrollbar { width: 8px; }
+    .cr-help-body::-webkit-scrollbar-thumb { background: #e8b9cc; border-radius: 2px; }
+    .cr-help-sec {
+      background: #fff; border: 2px solid #e8b9cc; border-radius: 2px;
+      padding: 12px 14px; box-shadow: 3px 3px 0 rgba(184,58,99,.12);
+    }
+    .cr-help-h {
+      display: flex; align-items: center; gap: 8px;
+      margin: 0 0 9px; font-size: 13.5px; letter-spacing: .5px; color: #8a3a58;
+    }
+    .cr-help-h i { width: 8px; height: 8px; flex: none; background: #f4a8c4; border: 2px solid #b83a63; }
+    .cr-help-sec p { margin: 0 0 7px; font-size: 12.5px; line-height: 1.95; color: #6b3a4a; }
+    .cr-help-sec p:last-child { margin-bottom: 0; }
+    .cr-keys { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+    .cr-keys li { display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; line-height: 1.8; color: #6b3a4a; }
+    .cr-keys b {
+      flex: none; min-width: 76px; padding: 1px 7px; text-align: center;
+      font-size: 11.5px; font-weight: 700; color: #a8325c;
+      background: #ffe9f1; border: 2px solid #e8b9cc; border-radius: 2px;
+    }
+    .cr-help-foot { margin: 2px 0 0; text-align: center; font-size: 11px; letter-spacing: 1px; color: #b98ba0; }
+
+    @media (max-width: 640px) {
+      .cr-menubar .cr-menu { gap: 2px; padding: 3px 6px; }
+      .cr-menu-item { font-size: 13px; letter-spacing: .5px; padding: 8px; min-height: 40px; }
+      .cr-help { padding: 12px; }
+      .cr-help-body { padding: 10px; gap: 10px; }
+      .cr-help-sec { padding: 10px 11px; }
+      .cr-keys b { min-width: 64px; }
+    }
+
+    @media (max-width: 640px) {
+      .dm-shell { border-radius: 22px; }
+      .dm-ava { width: 46px; height: 46px; }
+      .cr-overlay { padding: 10px; }
+      .cr-win { width: 100%; height: 92vh; max-height: 92vh; }
+      .cr-title { font-size: 17px; letter-spacing: 2px; }
+      .cr-smile { width: 28px; height: 28px; }
+      .cr-menubar .cr-panel { gap: 18px; font-size: 14px; padding: 7px 12px; }
+      .cr-log { padding: 14px 12px 10px; }
+      .cr-log .twin-msg .bubble { max-width: 90%; font-size: 13.5px; }
+      .cr-suggest { padding: 10px 12px; }
+      .cr-toolbar .cr-panel { gap: 16px; padding: 7px 12px; }
+      .cr-tool svg { width: 22px; height: 22px; }
+      .cr-inputbar { padding: 8px 10px; }
+      .cr-elephant { width: 38px; height: 38px; }
+    }
+
     /* ---------- Contact ---------- */
     .contact-card { text-align: center; }
     .contact-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
@@ -376,12 +713,12 @@
       .cta { padding: 9px 15px; }
     }
     /* ========== V2.0.8 像素光标：载入页=猫（用户上传图抠图，保持不动），正式页=兔子（用户上传图抠图） ========== */
-    body, body * { cursor: url('cursor-bunny.png') 45 48, auto !important; }
-    #splash, #splash * { cursor: url('cursor-cat.png') 48 44, auto !important; }
+    body, body * { cursor: url('cursor-bunny.png?v=3') 17 15, auto !important; }
+    #splash, #splash * { cursor: url('cursor-cat.png?v=3') 15 12, auto !important; }
     /* V2.1.1: 仅悬停正式页交互按钮（了解我/联系我）时显示新白猫光标；其余区域保持现版本（载入页猫/正式页兔）不变 */
-    .btn-primary, .btn-primary *, .btn-ghost, .btn-ghost * { cursor: url('cursor-bunny-btn.png') 48 37, auto !important; }
+    .btn-primary, .btn-primary *, .btn-ghost, .btn-ghost * { cursor: url('cursor-bunny-btn.png?v=3') 18 8, auto !important; }
     /* V2.1.1: 仅悬停载入页交互键时显示新灰兔光标（其余区域保持猫/兔不变） */
-    #splash .splash-btn, #splash .splash-btn * { cursor: url('cursor-cat-btn.png') 48 44, auto !important; }
+    #splash .splash-btn, #splash .splash-btn * { cursor: url('cursor-cat-btn.png?v=3') 29 29, auto !important; }
   </style>
 
   <style id="v3-music-style">
@@ -415,7 +752,7 @@
       font-size: 14px;
       font-family: var(--sans);
       box-shadow: var(--shadow-sm);
-      cursor: url('cursor-bunny-btn.png') 48 37, pointer;
+      cursor: url('cursor-bunny-btn.png?v=3') 18 8, pointer;
       transition: transform .18s, box-shadow .18s, background .18s;
       text-decoration: none;
     }
@@ -483,7 +820,7 @@
       font-size: 15px;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 8px 18px rgba(196,105,126,.35);
-      cursor: url('cursor-bunny-btn.png') 48 37, pointer;
+      cursor: url('cursor-bunny-btn.png?v=3') 18 8, pointer;
       transition: transform .15s, background .15s, box-shadow .15s;
     }
     .music-play:hover { transform: scale(1.08); background: var(--rose-deep); }
@@ -498,7 +835,7 @@
     .music-row.nosrc:hover { transform: none; box-shadow: none; }
 
     /* ---- 主页「音乐🎵」卡片：可点击跳转歌单 ---- */
-    .music-card { cursor: url('cursor-bunny-btn.png') 48 37, pointer; position: relative; transition: transform .18s, box-shadow .18s; }
+    .music-card { cursor: url('cursor-bunny-btn.png?v=3') 18 8, pointer; position: relative; transition: transform .18s, box-shadow .18s; }
     .music-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
     .music-card .card-hint {
       display: inline-block; margin-top: 8px;
@@ -530,7 +867,7 @@
       box-shadow: 6px 6px 14px rgba(178,158,165,.38), -6px -6px 14px rgba(255,255,255,.9);
       position: relative;
       flex: none;
-      cursor: url('cursor-bunny-btn.png') 48 37, pointer;
+      cursor: url('cursor-bunny-btn.png?v=3') 18 8, pointer;
       transition: transform .2s, box-shadow .2s;
       animation: mpBreath 2.6s ease-in-out infinite;
     }
@@ -583,7 +920,7 @@
       display: flex; align-items: center; justify-content: center;
       flex: none;
       box-shadow: 4px 4px 8px rgba(178,158,165,.32), -4px -4px 8px rgba(255,255,255,.85);
-      cursor: url('cursor-bunny-btn.png') 48 37, pointer;
+      cursor: url('cursor-bunny-btn.png?v=3') 18 8, pointer;
       transition: box-shadow .15s, transform .15s, color .15s;
     }
     .mini-btn:hover { transform: scale(1.08); color: #c9a2ac; box-shadow: 5px 5px 10px rgba(178,158,165,.36), -5px -5px 10px rgba(255,255,255,.9); }
@@ -1110,18 +1447,25 @@
       <div class="section-head">
         <span class="eyebrow">Digital Twin</span>
         <h2 data-zh="数字分身" data-en="Digital Twin">数字分身</h2>
-        <p data-zh="未来它会代替我回答关于我的问题。" data-en="In the future it will answer questions about me on my behalf.">未来它会代替我回答关于我的问题。</p>
+        <p data-zh="这个分身接了真实的语言模型，用我自己的资料回答。没预设过的问题也可以问。" data-en="This twin runs on a real language model and answers from my own notes. Ask anything, even something I never prepared for.">这个分身接了真实的语言模型，用我自己的资料回答。没预设过的问题也可以问。</p>
       </div>
-      <div class="think-card">
-        <div class="think-content">
-          <div class="think-visual">💬</div>
-          <div class="box">
-            <div class="card-title" data-zh="聊天入口（原型占位）" data-en="Chat Entry (Prototype)">聊天入口（原型占位）</div>
-            <p class="card-desc" data-zh="正在规划一个能聊天的数字分身。现在先放一个示例入口，之后接入真实能力。" data-en="Planning a digital twin that can chat. For now this is a sample entry; real capability comes later.">正在规划一个能聊天的数字分身。现在先放一个示例入口，之后接入真实能力。</p>
-            <div class="think-q" data-zh="<b>“你是谁？”</b> —— 未来它会回答关于我的问题。" data-en="<b>“Who are you?”</b> — In the future it will answer questions about me."><b>“你是谁？”</b> —— 未来它会回答关于我的问题。</div>
-            <div class="think-q" data-zh="<b>“怎么联系你？”</b> —— 联系我页面会告诉你。" data-en="<b>“How do I contact you?”</b> — The contact section will tell you."><b>“怎么联系你？”</b> —— 联系我页面会告诉你。</div>
-          </div>
+      <div class="dm-shell">
+        <div class="dm-top">
+          <span class="dm-top-t" data-zh="私信" data-en="Messages">私信</span>
+          <span class="dm-top-n">1</span>
         </div>
+        <button type="button" class="dm-row" id="twinOpen">
+          <span class="dm-ava" aria-hidden="true"><img src="avatar-v1.5.png" alt="" /></span>
+          <span class="dm-body">
+            <span class="dm-l1">
+              <span class="dm-name" data-zh="吴宇桐的数字分身" data-en="Yutong's Digital Twin">吴宇桐的数字分身</span>
+              <span class="dm-time" data-zh="刚刚" data-en="now">刚刚</span>
+            </span>
+            <span class="dm-l2" data-zh="你好，我是吴宇桐的数字分身，点开聊两句？" data-en="Hi, I am Yutong's digital twin. Tap to chat.">你好，我是吴宇桐的数字分身，点开聊两句？</span>
+          </span>
+          <span class="dm-unread" aria-hidden="true"></span>
+        </button>
+        <div class="dm-foot" data-zh="已接入真实语言模型 · 点这一条进入聊天室" data-en="Powered by a real language model · Tap the thread to enter">已接入真实语言模型 · 点这一条进入聊天室</div>
       </div>
     </section>
 
@@ -1691,6 +2035,564 @@
           }));
         } catch (e) {}
       }, 2000);
+    })();
+  </script>
+
+  <!-- ========== V3.5.0 像素风聊天室（点击私信进入） ========== -->
+  <div class="cr-overlay" id="chatroom" aria-hidden="true">
+    <div class="cr-win" role="dialog" aria-modal="true" aria-label="聊天室">
+      <div class="cr-titlebar">
+        <svg class="cr-smile" viewBox="0 0 34 34" shape-rendering="crispEdges" aria-hidden="true">
+          <rect x="2" y="2" width="30" height="30" rx="3" fill="#f7d94a" stroke="#b8860b" stroke-width="2.5"/>
+          <path d="M8 10 L13 15 L8 20" stroke="#6b4a00" stroke-width="2.6" fill="none" stroke-linecap="square"/>
+          <path d="M26 10 L21 15 L26 20" stroke="#6b4a00" stroke-width="2.6" fill="none" stroke-linecap="square"/>
+          <rect x="13" y="23" width="8" height="4" rx="1" fill="#6b4a00"/>
+        </svg>
+        <span class="cr-title" data-zh="聊天室" data-en="Chatroom">聊天室</span>
+        <span class="cr-btns">
+          <button type="button" class="cr-btn" id="crMin" aria-label="最小化">–</button>
+          <button type="button" class="cr-btn" id="crClose" aria-label="关闭">×</button>
+        </span>
+      </div>
+      <div class="cr-menubar"><div class="cr-panel cr-menu">
+        <button type="button" class="cr-menu-item" data-menu="file">File</button>
+        <button type="button" class="cr-menu-item" data-menu="edit">Edit</button>
+        <button type="button" class="cr-menu-item" data-menu="view">View</button>
+        <button type="button" class="cr-menu-item" data-menu="help" id="crHelpBtn" aria-haspopup="dialog" aria-expanded="false">Help</button>
+      </div></div>
+      <div class="cr-screen">
+        <div class="cr-screen-in">
+          <div class="cr-suggest" id="twinSuggest">
+            <button type="button" class="twin-chip cr-chip" data-ask-zh="你是谁？" data-ask-en="Who are you?">你是谁？</button>
+            <button type="button" class="twin-chip cr-chip" data-ask-zh="你在做什么项目？" data-ask-en="What projects are you working on?">你在做什么项目？</button>
+            <button type="button" class="twin-chip cr-chip" data-ask-zh="你怎么看团队合作？" data-ask-en="How do you think about teamwork?">你怎么看团队合作？</button>
+            <button type="button" class="twin-chip cr-chip" data-ask-zh="怎么联系你？" data-ask-en="How can I contact you?">怎么联系你？</button>
+          </div>
+          <div class="cr-log" id="twinLog"></div>
+        </div>
+      </div>
+      <div class="cr-fontpanel" id="fontPanel" hidden>
+        <div class="cr-panel">
+          <div class="fp-group">
+            <span class="fp-label" data-zh="字体" data-en="Font">字体</span>
+            <button type="button" class="fp-btn" data-font="mono" data-zh="等宽" data-en="Mono">等宽</button>
+            <button type="button" class="fp-btn" data-font="sans" data-zh="黑体" data-en="Sans">黑体</button>
+            <button type="button" class="fp-btn" data-font="serif" data-zh="宋体" data-en="Serif">宋体</button>
+          </div>
+          <div class="fp-group">
+            <span class="fp-label" data-zh="加粗" data-en="Bold">加粗</span>
+            <button type="button" class="fp-btn fp-bold" id="fontBold">B</button>
+            <span class="fp-label" data-zh="字号" data-en="Size">字号</span>
+            <button type="button" class="fp-btn" id="fontMinus">−</button>
+            <span class="fp-sizeval" id="fontSizeVal">14</span>
+            <button type="button" class="fp-btn" id="fontPlus">+</button>
+          </div>
+          <div class="fp-group">
+            <span class="fp-label" data-zh="颜色" data-en="Color">颜色</span>
+            <button type="button" class="fp-color" data-color="#6b3a4a" style="--c:#6b3a4a" aria-label="深棕"></button>
+            <button type="button" class="fp-color" data-color="#d4547f" style="--c:#d4547f" aria-label="玫粉"></button>
+            <button type="button" class="fp-color" data-color="#3a8fb5" style="--c:#3a8fb5" aria-label="蓝"></button>
+            <button type="button" class="fp-color" data-color="#4a9e6b" style="--c:#4a9e6b" aria-label="绿"></button>
+            <button type="button" class="fp-color" data-color="#8a5ac2" style="--c:#8a5ac2" aria-label="紫"></button>
+            <button type="button" class="fp-btn fp-reset" id="fontReset" data-zh="重置" data-en="Reset">重置</button>
+          </div>
+        </div>
+      </div>
+      <div class="cr-toolbar">
+        <div class="cr-panel">
+          <button type="button" class="cr-tool" id="toolFont" aria-label="字体设置" title="字体设置"><svg viewBox="0 0 26 26"><text x="14" y="22" text-anchor="middle" font-family="monospace" font-size="24" font-weight="900" fill="#a8325c">A</text><text x="12" y="20" text-anchor="middle" font-family="monospace" font-size="24" font-weight="900" fill="#e8699a">A</text></svg></button>
+          <button type="button" class="cr-tool" id="toolImage" aria-label="上传图片" title="上传图片"><svg viewBox="0 0 26 26"><rect x="2" y="2" width="22" height="22" rx="2" fill="#79c7e8" stroke="#3a8fb5" stroke-width="2"/><circle cx="9" cy="9" r="2.2" fill="#fff"/><path d="M4 21 L11 12 L16 17 L19 14 L22 21 Z" fill="#fff"/></svg></button>
+          <button type="button" class="cr-tool" id="toolHeart" aria-label="发送爱心" title="发送爱心"><svg viewBox="0 0 26 26"><path d="M13 23 C6 17 2 13 2 8.5 C2 5 4.5 3 7.5 3 C9.8 3 12 4.5 13 6.5 C14 4.5 16.2 3 18.5 3 C21.5 3 24 5 24 8.5 C24 13 20 17 13 23 Z" fill="#e8699a" stroke="#b83a63" stroke-width="1.5"/></svg></button>
+          <button type="button" class="cr-tool" id="toolStar" aria-label="发送星星" title="发送星星"><svg viewBox="0 0 26 26"><path d="M13 2 L16 9 L24 9 L18 14 L20 22 L13 17 L6 22 L8 14 L2 9 L10 9 Z" fill="#f7d94a" stroke="#b8860b" stroke-width="1.5"/></svg></button>
+          <span class="cr-credit" data-zh="吴宇桐 · 数字分身" data-en="Yutong · Digital Twin">吴宇桐 · 数字分身</span>
+        </div>
+      </div>
+      <form class="cr-inputbar" id="twinForm" autocomplete="off">
+        <svg class="cr-elephant" viewBox="0 0 44 44" aria-hidden="true">
+          <rect x="2" y="2" width="40" height="40" rx="4" fill="#79c7e8" stroke="#3a8fb5" stroke-width="2.5"/>
+          <g fill="#ffffff">
+            <ellipse cx="25" cy="26" rx="10" ry="7.5"/>
+            <circle cx="16" cy="18" r="7"/>
+            <ellipse cx="10.5" cy="17" rx="4.5" ry="6"/>
+            <path d="M12 22 Q8 32 14 34 L15.5 31 Q12 30 14 23 Z"/>
+            <rect x="19" y="30" width="4" height="7" rx="1"/>
+            <rect x="28" y="30" width="4" height="7" rx="1"/>
+          </g>
+          <circle cx="16" cy="17" r="1.4" fill="#3a8fb5"/>
+        </svg>
+        <button class="cr-send" id="twinSend" type="submit" aria-label="发送">▶</button>
+        <input type="file" id="imageInput" accept="image/*" hidden />
+        <input class="cr-input" id="twinInput" type="text" maxlength="300"
+               data-zh-ph="说点什么…" data-en-ph="Say something…" placeholder="说点什么…" />
+      </form>
+
+      <div class="cr-toast" id="crToast" role="status" aria-live="polite"></div>
+
+      <div class="cr-help" id="crHelp" role="dialog" aria-modal="true" aria-labelledby="crHelpTitle" aria-hidden="true">
+        <div class="cr-help-win">
+          <div class="cr-help-bar">
+            <span class="cr-help-title" id="crHelpTitle" data-zh="帮助 · 关于数字分身" data-en="Help · About the twin">帮助 · 关于数字分身</span>
+            <button type="button" class="cr-btn cr-help-close" id="crHelpClose" aria-label="关闭帮助">×</button>
+          </div>
+          <div class="cr-help-body">
+            <section class="cr-help-sec">
+              <h3 class="cr-help-h"><i aria-hidden="true"></i><span data-zh="关于这个数字分身" data-en="About this twin">关于这个数字分身</span></h3>
+              <p data-zh="我是吴宇桐的数字分身：用她公开过的资料和说话习惯设定，接 DeepSeek 实时生成回答，图片会交给视觉模型看。" data-en="I'm Yutong's digital twin. I answer in real time through DeepSeek using only the details she has shared publicly. Photos are read by a vision model.">我是吴宇桐的数字分身：用她公开过的资料和说话习惯设定，接 DeepSeek 实时生成回答，图片会交给视觉模型看。</p>
+              <p data-zh="可以问我专业课程、做过的项目、棉花娃娃和拼豆、联系方式，也能发照片让我描述。涉及隐私、政治宗教、对别人的评价，我会直接说不方便聊。" data-en="Ask me about courses, projects, cotton dolls, perler beads, or how to reach her. I can also describe a photo you send. Private topics, politics, religion, and opinions about other people are off-limits.">可以问我专业课程、做过的项目、棉花娃娃和拼豆、联系方式，也能发照片让我描述。涉及隐私、政治宗教、对别人的评价，我会直接说不方便聊。</p>
+              <p data-zh="回答由模型生成，可能有偏差。重要的事情请以本人回复为准。" data-en="Answers are model-generated and may be off. For anything important, please confirm with Yutong herself.">回答由模型生成，可能有偏差。重要的事情请以本人回复为准。</p>
+            </section>
+            <section class="cr-help-sec">
+              <h3 class="cr-help-h"><i aria-hidden="true"></i><span data-zh="界面按键" data-en="What each control does">界面按键</span></h3>
+              <ul class="cr-keys">
+                <li><b>– / ×</b><span data-zh="最小化或关闭：回到主页，聊天记录会保留。" data-en="Minimize or close: back to the homepage, chat history is kept.">最小化或关闭：回到主页，聊天记录会保留。</span></li>
+                <li><b>File / Edit / View</b><span data-zh="暂未开放，点了只弹一句提示。" data-en="Not open yet — tapping only shows a short notice.">暂未开放，点了只弹一句提示。</span></li>
+                <li><b>Help</b><span data-zh="打开这份说明。" data-en="Open this guide.">打开这份说明。</span></li>
+                <li><b>A</b><span data-zh="调整聊天字体：字体、加粗、字号、颜色，会记在这台设备上。" data-en="Change chat font: family, bold, size, color. Saved on this device.">调整聊天字体：字体、加粗、字号、颜色，会记在这台设备上。</span></li>
+                <li><b data-zh="图片" data-en="Image">图片</b><span data-zh="上传一张照片，我会描述看到的内容（最大 8MB，自动压缩）。" data-en="Send a photo for me to describe (max 8MB, auto-compressed).">上传一张照片，我会描述看到的内容（最大 8MB，自动压缩）。</span></li>
+                <li><b>❤ / ⭐</b><span data-zh="丢个表情，我会回你一句固定的话。" data-en="Send a sticker; I reply with a fixed line.">丢个表情，我会回你一句固定的话。</span></li>
+                <li><b data-zh="输入框" data-en="Input">输入框</b><span data-zh="最多 300 字，回车或点 ▶ 发送。" data-en="Up to 300 characters. Press Enter or ▶ to send.">最多 300 字，回车或点 ▶ 发送。</span></li>
+                <li><b>Esc</b><span data-zh="关闭聊天室；点窗口外的灰色区域也可以。" data-en="Close the chatroom. Clicking the grey area outside also works.">关闭聊天室；点窗口外的灰色区域也可以。</span></li>
+              </ul>
+            </section>
+            <p class="cr-help-foot" data-zh="像素风界面 · V3.5.0" data-en="Pixel UI · V3.5.0">像素风界面 · V3.5.0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========== V3.4.0 数字分身（真实模型对话，经 Supabase 代理）==========
+    (function () {
+      var TWIN_URL = 'https://dhydtsaabtxdoepqyxeo.supabase.co/functions/v1/twin-chat';
+      var TWIN_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoeWR0c2FhYnR4ZG9lcHF5eGVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk2MzA3OTEsImV4cCI6MjEwNTIwNjc5MX0.8mj8NkxpXXd8jCnRbXX3QlXzntFZgbENjIaycOsBMwU';
+
+      var logEl = document.getElementById('twinLog');
+      var formEl = document.getElementById('twinForm');
+      var inputEl = document.getElementById('twinInput');
+      var sendEl = document.getElementById('twinSend');
+      var suggestEl = document.getElementById('twinSuggest');
+      if (!logEl || !formEl || !inputEl || !sendEl) return;
+
+      var history = [];
+      var busy = false;
+      var welcomeEl = null;
+
+      function isEn() { return document.body.classList.contains('lang-en'); }
+      function pick(zh, en) { return isEn() ? en : zh; }
+
+      function scrollDown() { logEl.scrollTop = logEl.scrollHeight; }
+
+      function addMsg(role, text) {
+        var wrap = document.createElement('div');
+        wrap.className = 'twin-msg ' + role;
+        var bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        if (text) bubble.textContent = text;
+        wrap.appendChild(bubble);
+        logEl.appendChild(wrap);
+        scrollDown();
+        return bubble;
+      }
+
+      function addWelcome() {
+        welcomeEl = addMsg('bot', pick(
+          '你好，我是吴宇桐的数字分身。关于我的事都可以问我，没预设过的问题也行。',
+          "Hi, I'm Yutong's digital twin. Ask me anything about him, even something I never prepared for."
+        ));
+      }
+
+      function resetWelcomeText() {
+        if (welcomeEl && history.length === 0) {
+          welcomeEl.textContent = pick(
+            '你好，我是吴宇桐的数字分身。关于我的事都可以问我，没预设过的问题也行。',
+            "Hi, I'm Yutong's digital twin. Ask me anything about him, even something I never prepared for."
+          );
+        }
+      }
+
+      function syncPlaceholder() {
+        var en = isEn();
+        inputEl.placeholder = en ? inputEl.dataset.enPh : inputEl.dataset.zhPh;
+      }
+
+      function showError(bubble, text) {
+        bubble.textContent = text;
+        bubble.parentNode.classList.add('error');
+      }
+
+      function parseChunk(buffer) {
+        var out = '';
+        var lines = buffer.split('\n');
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line || line.indexOf('data:') !== 0) continue;
+          var data = line.slice(5).trim();
+          if (!data || data === '[DONE]') continue;
+          try {
+            var obj = JSON.parse(data);
+            var delta = obj.choices && obj.choices[0] && obj.choices[0].delta;
+            if (delta && delta.content) out += delta.content;
+          } catch (e) { /* 忽略不完整片段 */ }
+        }
+        return out;
+      }
+
+      async function ask(text) {
+        if (busy) return;
+        text = (text || '').trim();
+        if (!text) return;
+        if (text.length > 300) {
+          var longBubble = addMsg('bot', pick('问题太长了，请控制在 300 字以内。', 'That is a bit long. Please keep it under 300 characters.'));
+          longBubble.parentNode.classList.add('error');
+          return;
+        }
+
+        busy = true;
+        sendEl.disabled = true;
+        inputEl.value = '';
+
+        addMsg('user', text);
+        var botBubble = addMsg('bot', '');
+        botBubble.innerHTML = '<div class="twin-typing"><i></i><i></i><i></i></div>';
+
+        var acc = '';
+        var started = false;
+
+        try {
+          var res = await fetch(TWIN_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + TWIN_KEY,
+              'apikey': TWIN_KEY
+            },
+            body: JSON.stringify({ message: text, history: history })
+          });
+
+          if (!res.ok) {
+            var msg = pick('出了点问题，请稍后再试。', 'Something went wrong. Please try again.');
+            try {
+              var err = await res.json();
+              if (err && err.message) msg = err.message;
+            } catch (e) {}
+            showError(botBubble, msg);
+            return;
+          }
+
+          var reader = res.body.getReader();
+          var decoder = new TextDecoder();
+          var buffer = '';
+
+          while (true) {
+            var chunk = await reader.read();
+            if (chunk.done) break;
+            buffer += decoder.decode(chunk.value, { stream: true });
+            var piece = parseChunk(buffer);
+            var lastNl = buffer.lastIndexOf('\n');
+            if (lastNl >= 0) buffer = buffer.slice(lastNl + 1);
+            if (piece) {
+              if (!started) { started = true; botBubble.textContent = ''; }
+              acc += piece;
+              botBubble.textContent = acc;
+              scrollDown();
+            }
+          }
+
+          if (!acc) {
+            showError(botBubble, pick('没有收到回复，请再试一次。', 'No reply received. Please try again.'));
+          } else {
+            history.push({ role: 'user', content: text });
+            history.push({ role: 'assistant', content: acc });
+            if (history.length > 12) history = history.slice(-12);
+          }
+        } catch (e) {
+          showError(botBubble, pick('网络不太稳定，请稍后再试。', 'Network issue. Please try again.'));
+        } finally {
+          busy = false;
+          sendEl.disabled = false;
+          inputEl.focus();
+        }
+      }
+
+      formEl.addEventListener('submit', function (e) {
+        e.preventDefault();
+        ask(inputEl.value);
+      });
+
+      if (suggestEl) {
+        suggestEl.addEventListener('click', function (e) {
+          var btn = e.target.closest('.twin-chip');
+          if (!btn) return;
+          ask(isEn() ? btn.dataset.askEn : btn.dataset.askZh);
+        });
+      }
+
+      // 跟随页面中英切换（applyLang 改的是 body.lang-en）
+      var observer = new MutationObserver(function () {
+        syncPlaceholder();
+        resetWelcomeText();
+      });
+      observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+      syncPlaceholder();
+      addWelcome();
+
+      // ===== V3.5.0 聊天室开关 =====
+      var overlayEl = document.getElementById('chatroom');
+      var openEl = document.getElementById('twinOpen');
+      var closeEl = document.getElementById('crClose');
+      var minEl = document.getElementById('crMin');
+      var helpEl = document.getElementById('crHelp');
+      var helpBtn = document.getElementById('crHelpBtn');
+      var helpCloseEl = document.getElementById('crHelpClose');
+      var toastEl = document.getElementById('crToast');
+      var toastTimer = null;
+
+      function openChat() {
+        if (!overlayEl) return;
+        overlayEl.classList.add('open');
+        overlayEl.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('cr-lock');
+        setTimeout(function () { try { inputEl.focus({ preventScroll: true }); } catch (e) { inputEl.focus(); } scrollDown(); }, 160);
+      }
+      function closeChat() {
+        if (!overlayEl) return;
+        closeHelp(true);
+        overlayEl.classList.remove('open');
+        overlayEl.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('cr-lock');
+      }
+      if (openEl) openEl.addEventListener('click', openChat);
+      if (closeEl) closeEl.addEventListener('click', closeChat);
+      if (minEl) minEl.addEventListener('click', closeChat);
+      if (overlayEl) overlayEl.addEventListener('click', function (e) { if (e.target === overlayEl) closeChat(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape' || !overlayEl || !overlayEl.classList.contains('open')) return;
+        if (helpEl && helpEl.classList.contains('open')) { closeHelp(); return; }
+        closeChat();
+      });
+
+      // ===== V3.5.0 菜单栏：File / Edit / View 提示 · Help 说明面板 =====
+      function showToast(text) {
+        if (!toastEl) return;
+        toastEl.textContent = text;
+        toastEl.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 1900);
+      }
+      function openHelp() {
+        if (!helpEl) return;
+        clearTimeout(toastTimer);
+        if (toastEl) toastEl.classList.remove('show');
+        helpEl.classList.add('open');
+        helpEl.setAttribute('aria-hidden', 'false');
+        if (helpBtn) helpBtn.setAttribute('aria-expanded', 'true');
+        var body = helpEl.querySelector('.cr-help-body');
+        if (body) body.scrollTop = 0;
+        if (helpCloseEl) { try { helpCloseEl.focus({ preventScroll: true }); } catch (e) { helpCloseEl.focus(); } }
+      }
+      function closeHelp(silent) {
+        if (!helpEl || !helpEl.classList.contains('open')) return;
+        helpEl.classList.remove('open');
+        helpEl.setAttribute('aria-hidden', 'true');
+        if (helpBtn) {
+          helpBtn.setAttribute('aria-expanded', 'false');
+          if (!silent) helpBtn.focus();
+        }
+      }
+      document.querySelectorAll('.cr-menu-item').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (btn.dataset.menu === 'help') openHelp();
+          else showToast(pick('暂未开放该功能', 'Not available yet'));
+        });
+      });
+      if (helpCloseEl) helpCloseEl.addEventListener('click', function () { closeHelp(); });
+      if (helpEl) helpEl.addEventListener('click', function (e) { if (e.target === helpEl) closeHelp(); });
+
+      // ===== V3.5.0 工具栏：爱心 / 星星 / 图片 / 字体 =====
+      // 本地消息（不进对话历史，避免干扰模型上下文）
+      function addLocal(role, text, extraClass) {
+        var wrap = document.createElement('div');
+        wrap.className = 'twin-msg ' + role;
+        var b = document.createElement('div');
+        b.className = 'bubble' + (extraClass ? ' ' + extraClass : '');
+        b.textContent = text;
+        wrap.appendChild(b);
+        logEl.appendChild(wrap);
+        scrollDown();
+        return wrap;
+      }
+
+      function sendSticker(symbol, reply) {
+        if (busy) return;
+        addLocal('user', symbol, 'sticker');
+        setTimeout(function () { addLocal('bot', reply); }, 420);
+      }
+      var heartBtn = document.getElementById('toolHeart');
+      var starBtn = document.getElementById('toolStar');
+      if (heartBtn) heartBtn.addEventListener('click', function () {
+        sendSticker('\u2764\uFE0F', '\u6536\u5230\u4f60\u7684\u559c\u6b22\u5566\uff0c\u5982\u679c\u73a9\u7684\u5f00\u5fc3\u53ef\u4ee5\u5728\u53cd\u9988\u9875\u9762\u7ed9\u53cd\u9988\u5417\uff1f');
+      });
+      if (starBtn) starBtn.addEventListener('click', function () {
+        sendSticker('\u2B50', '\u6536\u5230\u661f\u661f\u5566\uff01\u4e5f\u9001\u4f60\u4e00\u9897\uff0c\u4eca\u5929\u4e5f\u8981\u5f00\u5f00\u5fc3\u5fc3 \u2728');
+      });
+
+      // 图片上传 + 描述
+      var imageBtn = document.getElementById('toolImage');
+      var imageInput = document.getElementById('imageInput');
+
+      function compressImage(file, cb) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          var img = new Image();
+          img.onload = function () {
+            var scale = Math.min(1, 1024 / Math.max(img.width, img.height));
+            var canvas = document.createElement('canvas');
+            canvas.width = Math.round(img.width * scale);
+            canvas.height = Math.round(img.height * scale);
+            canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+            cb(canvas.toDataURL('image/jpeg', 0.85));
+          };
+          img.onerror = function () { addLocal('error', '\u8fd9\u5f20\u56fe\u7247\u8bfb\u53d6\u5931\u8d25\uff0c\u6362\u4e00\u5f20\u8bd5\u8bd5\u3002'); };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function addImageMsg(dataUrl) {
+        var wrap = document.createElement('div');
+        wrap.className = 'twin-msg user';
+        var b = document.createElement('div');
+        b.className = 'bubble img-bubble';
+        var img = document.createElement('img');
+        img.src = dataUrl;
+        b.appendChild(img);
+        wrap.appendChild(b);
+        logEl.appendChild(wrap);
+        scrollDown();
+      }
+
+      async function describeImage(dataUrl) {
+        setBusy(true);
+        var botBubble = appendBot();
+        try {
+          var res = await fetch(TWIN_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'apikey': TWIN_KEY, 'Authorization': 'Bearer ' + TWIN_KEY },
+            body: JSON.stringify({
+              image: dataUrl,
+              message: '\u8bf7\u63cf\u8ff0\u8fd9\u5f20\u56fe\u7247\u91cc\u6709\u4ec0\u4e48\u3002\u53ea\u5ba2\u89c2\u63cf\u8ff0\u753b\u9762\u5185\u5bb9\uff0c\u4e0d\u53d1\u8868\u89c2\u70b9\u3002'
+            })
+          });
+          if (!res.ok) {
+            botBubble.parentElement.remove();
+            if (res.status === 503) addLocal('error', '\u56fe\u7247\u8bc6\u522b\u8fd8\u6ca1\u63a5\u89c6\u89c9\u6a21\u578b\uff0c\u914d\u7f6e\u597d\u540e\u6211\u5c31\u80fd\u770b\u56fe\u4e86\u3002');
+            else addLocal('error', '\u56fe\u7247\u8bc6\u522b\u5931\u8d25\uff08' + res.status + '\uff09\uff0c\u7a0d\u540e\u518d\u8bd5\u3002');
+            return;
+          }
+          var reader = res.body.getReader();
+          var decoder = new TextDecoder();
+          var buffer = '';
+          var full = '';
+          while (true) {
+            var r = await reader.read();
+            if (r.done) break;
+            buffer += decoder.decode(r.value, { stream: true });
+            var parts = buffer.split('\n');
+            buffer = parts.pop();
+            for (var i = 0; i < parts.length; i++) {
+              var line = parts[i].trim();
+              if (!line || line.indexOf('data:') !== 0) continue;
+              var data = line.slice(5).trim();
+              if (data === '[DONE]') break;
+              try {
+                var json = JSON.parse(data);
+                var delta = json.choices && json.choices[0] && json.choices[0].delta;
+                var text = delta && delta.content;
+                if (text) { full += text; botBubble.textContent = full; scrollDown(); }
+              } catch (e) {}
+            }
+          }
+          if (!full) botBubble.textContent = '\u6211\u8fd9\u8fb9\u6ca1\u6536\u5230\u63cf\u8ff0\uff0c\u518d\u53d1\u4e00\u6b21\u8bd5\u8bd5\uff1f';
+        } catch (err) {
+          botBubble.parentElement.remove();
+          addLocal('error', '\u7f51\u7edc\u597d\u50cf\u4e0d\u592a\u7a33\uff0c\u56fe\u7247\u6ca1\u80fd\u8bc6\u522b\u6210\u529f\u3002');
+        } finally { setBusy(false); }
+      }
+
+      if (imageBtn && imageInput) {
+        imageBtn.addEventListener('click', function () { if (!busy) imageInput.click(); });
+        imageInput.addEventListener('change', function () {
+          var f = imageInput.files && imageInput.files[0];
+          imageInput.value = '';
+          if (!f) return;
+          if (f.size > 8 * 1024 * 1024) { addLocal('error', '\u56fe\u7247\u592a\u5927\u4e86\uff0c\u6362\u4e00\u5f20\u5c0f\u4e00\u70b9\u7684\u5427\u3002'); return; }
+          compressImage(f, function (dataUrl) {
+            addImageMsg(dataUrl);
+            describeImage(dataUrl);
+          });
+        });
+      }
+
+      // 字体自定义（A 面板）
+      var fontPanel = document.getElementById('fontPanel');
+      var fontBtn = document.getElementById('toolFont');
+      var winEl = document.querySelector('.cr-win');
+      var FONT_MAP = {
+        mono: '"SF Mono", "Menlo", "Consolas", "Courier New", monospace',
+        sans: '-apple-system, "PingFang SC", "Microsoft YaHei", sans-serif',
+        serif: '"Songti SC", "SimSun", "Noto Serif CJK SC", serif'
+      };
+      var prefs = { font: 'mono', bold: false, size: 14, color: '#6b3a4a' };
+      try {
+        var saved = JSON.parse(localStorage.getItem('cr-font') || 'null');
+        if (saved && FONT_MAP[saved.font]) prefs = saved;
+      } catch (e) {}
+
+      function applyPrefs() {
+        if (!winEl) return;
+        winEl.style.setProperty('--chat-font', FONT_MAP[prefs.font]);
+        winEl.style.setProperty('--chat-weight', prefs.bold ? '700' : '400');
+        winEl.style.setProperty('--chat-size', prefs.size + 'px');
+        winEl.style.setProperty('--chat-color', prefs.color);
+        var sv = document.getElementById('fontSizeVal');
+        if (sv) sv.textContent = prefs.size;
+        document.querySelectorAll('.fp-btn[data-font]').forEach(function (b) {
+          b.classList.toggle('on', b.dataset.font === prefs.font);
+        });
+        var bb = document.getElementById('fontBold');
+        if (bb) bb.classList.toggle('on', prefs.bold);
+        document.querySelectorAll('.fp-color').forEach(function (b) {
+          b.classList.toggle('on', b.dataset.color === prefs.color);
+        });
+        try { localStorage.setItem('cr-font', JSON.stringify(prefs)); } catch (e) {}
+      }
+
+      if (fontBtn && fontPanel) {
+        fontBtn.addEventListener('click', function () {
+          fontPanel.hidden = !fontPanel.hidden;
+          fontBtn.classList.toggle('on', !fontPanel.hidden);
+        });
+      }
+      document.querySelectorAll('.fp-btn[data-font]').forEach(function (b) {
+        b.addEventListener('click', function () { prefs.font = b.dataset.font; applyPrefs(); });
+      });
+      var boldBtn = document.getElementById('fontBold');
+      if (boldBtn) boldBtn.addEventListener('click', function () { prefs.bold = !prefs.bold; applyPrefs(); });
+      var minusBtn = document.getElementById('fontMinus');
+      var plusBtn = document.getElementById('fontPlus');
+      if (minusBtn) minusBtn.addEventListener('click', function () { if (prefs.size > 11) { prefs.size--; applyPrefs(); } });
+      if (plusBtn) plusBtn.addEventListener('click', function () { if (prefs.size < 22) { prefs.size++; applyPrefs(); } });
+      document.querySelectorAll('.fp-color').forEach(function (b) {
+        b.addEventListener('click', function () { prefs.color = b.dataset.color; applyPrefs(); });
+      });
+      var resetBtn = document.getElementById('fontReset');
+      if (resetBtn) resetBtn.addEventListener('click', function () {
+        prefs = { font: 'mono', bold: false, size: 14, color: '#6b3a4a' };
+        applyPrefs();
+      });
+      applyPrefs();
     })();
   </script>
 </body>
